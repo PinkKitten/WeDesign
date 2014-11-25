@@ -16,4 +16,12 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
+//= require underscore
+//= require backbone
+//= require we_design
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .

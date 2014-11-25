@@ -1,0 +1,11 @@
+<%= flash[:errors].join("<br>").html_safe if flash[:errors]%>
+
+<% if logged_in? %>
+	<%= button_to "Sign out", session_url, method: :delete %>
+	<%= @current_user.name %>!
+<% else %>
+	<%= link_to "Sign in", new_session_url %>
+	<%= link_to "Sign up", new_user_url %>
+<% end %>
+
+

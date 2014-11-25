@@ -1,0 +1,1 @@
+json.(@challenges, :id, :name, :category, :end_date, :description, :admin_id, :created_at)

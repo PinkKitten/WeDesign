@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string(255)      not null
+#  password_digest :string(255)      not null
+#  session_token   :string(255)      not null
+#  name            :string(255)      not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   validates :email, :password_digest, :session_token, :name, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -6,6 +19,13 @@ class User < ActiveRecord::Base
   attr_reader :password
   
   after_initialize :ensure_session_token!
+  
+  has_many(
+    :challenges,
+    class_name: "Challenge",
+    foreign_key: :admin_id,
+    primary_key: :id
+    )
   
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

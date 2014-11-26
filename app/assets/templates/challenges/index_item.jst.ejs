@@ -1,12 +1,13 @@
-<a href="#api/challenges/<%= challenge.id %>">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-				<h3 class="panel-title"><%= challenge.escape('name') %></h3>
-		</div>
-		<div class="panel-body">
-			<%= challenge.escape('category') %><br>
-			<%= challenge.escape('description') %><br>
-			<%= challenge.escape('end_date') %>
-		</div
+<div class="challenge-container" data-id="<%= challenge.id %>">
+ <div class="challenge-img"><img src="assets/<%= challenge.escape('background_img') %>"></div>
+	<div class="challenge-text">
+	<div class="panel-heading">
+			<h3 class="panel-title"><%= challenge.escape('name') %></h3>
 	</div>
-</a>
+	<div class="panel-body">
+		Category: <%= challenge.escape('category') %><br>
+		Ends: <%= challenge.escape('end_date') %>
+	</div
+	</div>
+</div>
+

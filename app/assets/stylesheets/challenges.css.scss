@@ -2,13 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.challenges-index-item {
+div.challenge-img {
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+	height: 230px;
+}
+
+div.challenge-img img {
+	height: 230px;
+}
+
+div.challenge-text {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+div.challenge-container {
+	width: 250px;
+	height: 250px;
 	float: left;
-	width: 200px;
-	height: 200px;
+	position: relative;
+	border: 2px solid grey;
+	border-radius: 5px;
 	margin: 10px;
 }
 
-div.panel:hover {
-	background-color: grey;
+div.challenge-text {
+	z-index: 10;
+}
+
+div.challenge-container:hover {
+	background-color: pink;
 }

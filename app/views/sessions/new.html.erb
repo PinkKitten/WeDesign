@@ -1,12 +1,28 @@
-<h1>Sign In!</h1>
+<!-- <div id="catwalk-background"><img src="/assets/empty-catwalk.png" id="catwalk"></div> -->
 
-<form action="/session" method="POST">
-	<input type="hidden"
-				 name="authenticity_token"
-				 value="<%= form_authenticity_token %>">
-	<label for="user_email">Email</label>
-	<input type"text" name="user[email]" id="user_email"><br>
-	<label for="user_password">Password</label>
-	<input type="password" name="user[password]" id="user_password">
-	<input type="submit" value="Sign In!">
-</form>
+<div id="sign-in-form">
+	<div>
+		<div class="tab1">Sign in</div>
+		<div class="tab2">Sign up</div>
+	</div>
+
+	<form action="/session" method="POST">
+		<input type="hidden"
+					 name="authenticity_token"
+					 value="<%= form_authenticity_token %>">
+		<label for="user_email">Email</label>
+		<div class="input-group input-group">
+			<span class="input-group-addon">@</span>
+			<input type"text" name="user[email]" id="user_email" class="form-control" placeholder="Email">
+		</div>
+		<br>
+		<label for="user_password">Password</label>
+		<div class="input-group input-group">
+			<span class="input-group-addon">@</span>
+			<input type="password" name="user[password]" id="user_password" class="form-control" placeholder="Password">
+		</div>
+		<br>
+		<input type="submit" value="Sign in" class="btn default-btn">
+		<%= link_to "Sign up", new_user_url, class: "navbar-text" %>
+	</form>
+</div>

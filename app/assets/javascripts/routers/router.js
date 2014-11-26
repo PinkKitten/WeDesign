@@ -1,20 +1,29 @@
 WeDesign.Routers.Router = Backbone.Router.extend({
 	initialize: function(options){
 		this.$rootEl = options.$rootEl
-		this.collection = options.collection
+		this.challengesCollection = options.challengesCollection
 	},
 	
 	//need to adjust the actual routes specs later
 	routes: {
-		"api/challenges": 'index'
+		"api/challenges": 'indexChallenges',
+		"api/challenges/:id": 'showChallenge'
 	},
 	
-	index: function() {
-		this.collection.fetch();
+	indexChallenges: function() {
+		this.challengesCollection.fetch();
 		var indexView = new WeDesign.Views.ChallengesIndex({
-			collection: this.collection
+			collection: this.challengesCollection
 		});
 		this._swapView(indexView);
+	},
+	
+	showChallenge: function(id) {
+		var model = this.challengesCollection.getOrFetch(id);
+		var showView = new WeDesign.Views.ChallengesShow({
+			model: model
+		});
+		this._swapView(showView);
 	},
 	
 	_swapView: function(view) {

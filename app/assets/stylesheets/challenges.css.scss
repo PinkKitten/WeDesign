@@ -1,3 +1,14 @@
 // Place all the styles related to the challenges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.challenges-index-item {
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin: 10px;
+}
+
+div.panel:hover {
+	background-color: grey;
+}

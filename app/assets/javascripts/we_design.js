@@ -5,10 +5,10 @@ window.WeDesign = {
   Routers: {},
   initialize: function() {
     var $rootEl = $("#content");
-		var collection = new WeDesign.Collections.Challenges();
+		var challengesCollection = new WeDesign.Collections.Challenges();
 		new WeDesign.Routers.Router({
 			$rootEl: $rootEl,
-			collection: collection
+			challengesCollection: challengesCollection
 		})
 		Backbone.history.start();
   }

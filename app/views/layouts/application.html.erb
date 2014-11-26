@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= render partial: "layouts/header" %>
+<% if logged_in? %>
+		<%= render partial: "layouts/header" %>
+<% else %>
+		<div id="catwalk-background"><img src="/assets/empty-catwalk.png" id="catwalk"></div>
+<% end %>
 <%= yield %>
 
 </body>

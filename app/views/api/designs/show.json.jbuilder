@@ -1,0 +1,1 @@
+json.(@designs, :id, :design_img, :title, :designer_id, :challenge_id, :created_at)

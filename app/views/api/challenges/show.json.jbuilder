@@ -1,1 +1,1 @@
-json.(@challenges, :id, :name, :category, :end_date, :description, :admin_id, :created_at)
+json.(@challenges, :id, :name, :category, :end_date, :description, :background_img, :admin_id, :created_at)

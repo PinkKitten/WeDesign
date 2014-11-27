@@ -10,7 +10,7 @@ WeDesign.Views.ChallengesIndexItem = Backbone.CompositeView.extend({
 	events: {
 		'click div.challenge-container': 'renderShowPage'
 	},
-	
+
 	render: function () {
 		var content = this.template({
 			challenge: this.model

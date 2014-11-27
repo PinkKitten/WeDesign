@@ -15,6 +15,7 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		this.remove();
 		this.renderDesigns();
 		this.attachSubviews();
+		this.fillDesigns();
 		return this;
 	},
 	
@@ -23,6 +24,14 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 			collection: this.model.designs()
 		});
 		this.addSubview('.submitted-designs', designViews);
-	}
+	},
 	
+	fillDesigns: function () {
+		this.$designs = this.$el.find('div.challenges-design-index-item');
+	  this.$el.find('div.challenges-design-index-item').remove();
+	  	for (var i = 0; i < 6; i++) {
+	    	this.$el.find('.submitted-designs .designs').append(this.$designs[i]);
+	  	};
+		}
+		
 })

@@ -4,8 +4,14 @@
 
 div.challenges-design-index-item {
 	float: left;
-	width: 150px;
-	height: 200px;
+//	width: 150px;
+	height: 250px;
 	border: 1px solid grey;
 	margin: 10px;
+	padding: 10px;
+}
+
+div.design-img img{
+	margin: 5px;
+	height: 175px;
 }

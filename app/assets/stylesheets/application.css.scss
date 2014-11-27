@@ -27,6 +27,7 @@ img#catwalk {
 	width: 100vw;
 	position: absolute;
 	top: 0px;
+	z-index: -10;
 }
 
 div#sign-up-form, div#sign-in-form {

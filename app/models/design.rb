@@ -7,4 +7,11 @@ class Design < ActiveRecord::Base
     foreign_key: :designer_id,
     primary_key: :id
   ) 
+  
+  belongs_to(
+    :challenge,
+    class_name: "Challenge",
+    foreign_key: :challenge_id,
+    primary_key: :id
+  )
 end

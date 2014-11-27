@@ -22,4 +22,11 @@ class Challenge < ActiveRecord::Base
     foreign_key: :admin_id,
     primary_key: :id
   )
+  
+  has_many(
+    :submitted_designs,
+    class_name: "Design",
+    foreign_key: :challenge_id,
+    primary_key: :id
+  )
 end

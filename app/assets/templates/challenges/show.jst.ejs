@@ -1,8 +1,11 @@
-<div class="challenge-description">
-	<div>Image</div>
-	<div>Description</div>
+<div class='row'>
+	<div class='col-xs-2'><img src="assets/<%= challenge.escape('background_img') %>"></div>
+	<div class='col-xs-6'><div class="challenge-description"></div></div>
+	<div class='col-xs-4'>Button</div>
 </div>
-<button class="submit-design btn btn-default">Submit my own design</button>
-
-
-<div class="submitted-designs"></div>
+<div class='row'>
+	<div class='col-xs-12'><div class="panel panel-default"><div class="panel-heading">Submitted Designs</div></div></div>
+</div>
+<div class='row'>
+	<div class='col-xs-12'><div class="submitted-designs"></div></div>
+</div>

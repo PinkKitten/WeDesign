@@ -12,7 +12,17 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 			challenge: this.model
 		});
 		this.$el.html(content);
+		this.remove();
+		this.renderDesigns();
+		this.attachSubviews();
 		return this;
+	},
+	
+	renderDesigns: function () {
+		var designViews = new WeDesign.Views.ChallengeDesignsIndex({
+			collection: this.model.designs()
+		});
+		this.addSubview('.submitted-designs', designViews);
 	}
 	
 })

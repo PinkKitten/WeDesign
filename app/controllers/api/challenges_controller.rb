@@ -21,15 +21,10 @@ module Api
       render json: @challenges
     end
 
-    # def show
-    #   @challenge = Board.includes(:members, lists: :cards).find(params[:id])
-    #   @lists = @board.lists
-    #   if @board.is_member?(current_user)
-    #     render 'show.json.jbuilder'
-    #   else
-    #     render json: ["You aren't a member of this board"], status: 403
-    #   end
-    # end
+    def show
+      @challenge = Challenge.includes(:submitted_designs).find(params[:id])
+      render 'show.json.jbuilder'
+    end
 
     private
 

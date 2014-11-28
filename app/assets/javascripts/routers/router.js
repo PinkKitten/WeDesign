@@ -1,7 +1,7 @@
 WeDesign.Routers.Router = Backbone.Router.extend({
 	initialize: function(options){
-		this.$rootEl = options.$rootEl
-		this.challengesCollection = options.challengesCollection
+		this.$rootEl = options.$rootEl;
+		this.challengesCollection = options.challengesCollection;
 	},
 	
 	//need to adjust the actual routes specs later

@@ -1,6 +1,6 @@
 WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	tagName: "div",
-	className: "",	
+	className: "clearfix submitted-designs-row",	
 	
   template: JST['designs/challenge-designs-index'],
 	

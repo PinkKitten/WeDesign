@@ -3,15 +3,52 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div.challenges-design-index-item {
-	float: left;
-//	width: 150px;
+	display: inline-block;
 	height: 250px;
 	border: 1px solid grey;
 	margin: 10px;
 	padding: 10px;
+	background-color: white;
 }
 
 div.design-img img{
 	margin: 5px;
 	height: 175px;
+//	background-color: white;
+}
+
+.clearfix {
+  overflow: auto;
+	vertical-align: middle;
+}
+
+div.designs {
+	text-align: center;
+	display: inline-block;
+}
+
+.submit-design {
+//	height: 100px;
+//	width: 100px;
+//	vertical-align: middle;
+	text-align: center;
+}
+
+img.mannequin {
+	height: 150px;
+}
+
+div.submitted-designs {
+	background-color: white;
+//	border-radius: 0px 0px 10px 10px;
+}
+
+div.submitted-designs-row {
+	background-color: #EFEFEF;
+	border-radius: 10px; 
+//	border-radius: 10px;
+}
+
+div.submitted-designs-section-title {
+	text-align: center;
 }

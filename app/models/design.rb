@@ -21,4 +21,10 @@ class Design < ActiveRecord::Base
     foreign_key: :design_id,
     primary_key: :id
   )
+  
+  has_many(
+    :pre_order_users,
+    through: :votes,
+    source: :voter
+  )
 end

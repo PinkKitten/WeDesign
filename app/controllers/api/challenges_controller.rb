@@ -22,7 +22,7 @@ module Api
     end
 
     def show
-      @challenge = Challenge.includes(:submitted_designs).find(params[:id])
+      @challenge = Challenge.includes(submitted_designs: :pre_order_users).find(params[:id])
       render 'show.json.jbuilder'
     end
 

@@ -29,4 +29,11 @@ class Challenge < ActiveRecord::Base
     foreign_key: :challenge_id,
     primary_key: :id
   )
+  
+  has_many(
+    :votes,
+    class_name: "Vote",
+    foreign_key: :challenge_id,
+    primary_key: :id
+  )
 end

@@ -14,12 +14,19 @@ class User < ActiveRecord::Base
     primary_key: :id
     )
     
-  belongs_to(
+  has_many(
       :designs,
       class_name: "Design",
       foreign_key: :designer_id,
       primary_key: :id
     ) 
+  
+  has_many(
+      :votes,
+      class_name: "Vote",
+      foreign_key: :user_id,
+      primary_key: :id
+  )
   
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

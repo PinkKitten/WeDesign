@@ -14,7 +14,7 @@ module Api
       @designs = Design.all
       render json: @designs
     end
-
+    
     private
 
     def design_params

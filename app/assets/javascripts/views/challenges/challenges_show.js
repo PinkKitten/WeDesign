@@ -8,7 +8,21 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		'click div.submit-design': 'renderSubmit'
+		'click div.submit-design': 'renderSubmit',
+		'submit': 'addNewDesign',
+		'blur .submission-form': 'closeNewSubmission'
+	},
+	
+	addNewDesign: function (event) {
+		
+	},
+	
+	closeNewSubmission: function (event) {
+		$('.submission-form').fadeOut(500, function() {
+			 $( '.row' ).fadeTo( 500 , 1 , function () {
+			 		$('div.submit-design').removeClass('disabled');
+			 })
+		})
 	},
 	
 	render: function () {
@@ -31,14 +45,15 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	},
 	
 	renderSubmit: function (event) {
-		// var designId = this.model.id;
-		// $('.row').css({ opacity: 0.3 });
-		$('.row').fadeTo('slow', 0.3, function() {
-			 $( ".submission-form" ).fadeIn( 1000 )
-		})
-
-		// $('.submission-form').css("display", "inline-block");
-
+		var target = $('div.submit-design');
+		if (!target.hasClass('disabled')) {
+			target.addClass('disabled')
+			$('.row').fadeTo('slow', 0.3, function() {
+				 $( ".submission-form" ).fadeIn( 1000 , function () {
+					 $('#design_title').focus();
+				 })
+			})
+		}
 	},
 	
 	fillDesigns: function () {

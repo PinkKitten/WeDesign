@@ -16,7 +16,9 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 	
 	render: function () {
 		var content = this.template({
-			design: this.model
+			design: this.model,
+			preOrderCount: this.model.preOrderUsers().length,
+			commentsCount: this.model.comments().length
 		});
 		this.$el.html(content);
 		this.renderInfo();
@@ -24,7 +26,12 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 	},
 	
 	renderInfo: function (event) {
-		event && event.preventDefault();
+		if (event) {
+			event.preventDefault();
+			this._changeActiveState($(event.currentTarget));
+		} else {
+			this._changeActiveState(this.$el.find('.info'));
+		}
 		var infoView = new WeDesign.Views.ChallengeDesignShowInfo({
 			model: this.model
 		});
@@ -37,6 +44,7 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 			model: this.model
 		});
 		this.$el.find('.design-content').html(preOrderView.render().$el);
+		this._changeActiveState($(event.currentTarget));
 	},
 	
 	renderComments: function(event) {
@@ -45,6 +53,13 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 			model: this.model
 		});
 		this.$el.find('.design-content').html(commentsView.render().$el);
+		this._changeActiveState($(event.currentTarget));
 	},
+	
+	_changeActiveState: function (target) {
+		this.lastActive && this.lastActive.removeClass('active');
+		target.addClass('active');
+		this.lastActive = target;
+	}
 
 });

@@ -29,7 +29,9 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 		comment.save({}, {
 			success: function () {
 				this.model.comments().set(comment, {remove: false} );
+				// this.model.comments().add(comment);
 				this.render();
+				$('.comments-count').html(this.model.comments().length);
 			}.bind(this)
 		})
 	},

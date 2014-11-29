@@ -17,6 +17,7 @@ WeDesign.Models.Design = Backbone.Model.extend({
 	},
 	
 	parse: function(resp) {
+
 		if (resp.preOrderUsers) {
 			this.preOrderUsers().set(resp.preOrderUsers);
 			delete resp.preOrderUsers;

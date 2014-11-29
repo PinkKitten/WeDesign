@@ -31,7 +31,6 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 		var challenge = this.challengesCollection.getOrFetch(challengeId);
 		var design = challenge.designs().get(designId);
 		var challengeDesignShowView = new WeDesign.Views.ChallengeDesignShow({
-			collection: challenge.designs(),
 			model: design
 		});
 		this._swapView(challengeDesignShowView);

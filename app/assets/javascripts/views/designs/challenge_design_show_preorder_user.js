@@ -1,4 +1,4 @@
-WeDesign.Views.ChallengeDesignsPreOrderUser = Backbone.CompositeView.extend({
+WeDesign.Views.ChallengeDesignShowPreOrderUser = Backbone.CompositeView.extend({
 	tagName: "div",
 	className: "user-container",	
 	
@@ -10,5 +10,6 @@ WeDesign.Views.ChallengeDesignsPreOrderUser = Backbone.CompositeView.extend({
 		})
 		this.$el.html(content);
 		return this;
-	}
+	},
+	
 });

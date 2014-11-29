@@ -9,7 +9,7 @@ WeDesign.Views.ChallengeDesignShowPreOrders = Backbone.CompositeView.extend({
 	},
 	
 	addPreOrderUser: function (preOrderUser) {
-		var preOrderUserShow = new WeDesign.Views.ChallengeDesignsPreOrderUser({
+		var preOrderUserShow = new WeDesign.Views.ChallengeDesignShowPreOrderUser({
 			model: preOrderUser
 		});
 		this.addSubview('.list-pre-order-users', preOrderUserShow);

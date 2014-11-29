@@ -6,13 +6,13 @@ div.challenges-design-index-item {
 	display: inline-block;
 	height: 250px;
 	border: 1px solid grey;
-	margin: 10px;
+	margin: 5px;
 	padding: 10px;
 	background-color: white;
 }
 
 div.design-img img{
-	margin: 5px;
+//	margin: 2px;
 	height: 175px;
 //	background-color: white;
 }
@@ -46,6 +46,7 @@ div.submitted-designs {
 div.submitted-designs-row {
 	background-color: #EFEFEF;
 	border-radius: 10px; 
+	text-align: center;
 //	border-radius: 10px;
 }
 

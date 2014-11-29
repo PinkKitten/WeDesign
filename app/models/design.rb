@@ -27,4 +27,11 @@ class Design < ActiveRecord::Base
     through: :votes,
     source: :voter
   )
+  
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :design_id,
+    primary_key: :id
+  )
 end

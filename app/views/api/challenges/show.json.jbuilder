@@ -5,5 +5,8 @@ json.designs @challenge.submitted_designs do |design|
 	json.preOrderUsers design.pre_order_users do |user|
 		json.(user, :id, :name, :email, :created_at)
 	end
+	json.comments design.comments do |comment|
+		json.(comment, :id, :user_id, :design_id, :body, :created_at)
+	end
 end
 

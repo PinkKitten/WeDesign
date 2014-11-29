@@ -25,6 +25,7 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 			model: model
 		});
 		this._swapView(showView);
+		showView.delegateEvents();
 	},
 	
 	showChallengeDesign: function(challengeId, designId) {

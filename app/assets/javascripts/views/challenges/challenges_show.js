@@ -7,6 +7,10 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, "sync", this.render);
 	},
 	
+	events: {
+		'click div.submit-design': 'renderSubmit'
+	},
+	
 	render: function () {
 		var content = this.template({
 			challenge: this.model
@@ -24,6 +28,17 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 			collection: this.model.designs()
 		});
 		this.addSubview('.submitted-designs', designViews);
+	},
+	
+	renderSubmit: function (event) {
+		// var designId = this.model.id;
+		// $('.row').css({ opacity: 0.3 });
+		$('.row').fadeTo('slow', 0.3, function() {
+			 $( ".submission-form" ).fadeIn( 1000 )
+		})
+
+		// $('.submission-form').css("display", "inline-block");
+
 	},
 	
 	fillDesigns: function () {

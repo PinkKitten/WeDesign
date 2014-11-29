@@ -9,7 +9,7 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		'click div.design-thumbnail': 'showDesign'
+		'click div.design-thumbnail': 'showDesign',
 	},
 	
 	addDesignItem: function (design) {

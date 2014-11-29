@@ -1,6 +1,6 @@
 WeDesign.Views.ChallengeDesignShowCommentsItem = Backbone.CompositeView.extend({
 	tagName: "div",
-	className: "",	
+	className: "comments-container",	
 	
   template: JST['designs/challenge-design-show-comments-item'],
 	

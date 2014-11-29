@@ -1,1 +1,5 @@
-<%= comment.escape('body') %>
+<div class="user-image"><img src="http://placekitten.com/g/50/50" class="img-rounded"></div>
+<div class="comment-info">
+	<strong>Username</strong> <%= comment.escape('created_at') %><br>
+	<%= comment.escape('body') %>
+</div>

@@ -8,11 +8,30 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.render)
 	},
 	
+	events: {
+		'submit': 'addNewComment'
+	},
+	
 	addComment: function (comment) {
 		var commentShow = new WeDesign.Views.ChallengeDesignShowCommentsItem({
 			model: comment
 		});
 		this.addSubview('.list-comments', commentShow);
+	},
+	
+	addNewComment: function (event) {
+		event.preventDefault();
+		var body = this.$el.find('textarea').val();
+		var comment = new WeDesign.Models.Comment({
+			body: body,
+			design_id: this.model.id
+		});
+		comment.save({}, {
+			success: function () {
+				this.model.comments().set(comment, {remove: false} );
+				this.render();
+			}.bind(this)
+		})
 	},
 	
 	render: function () {
@@ -21,6 +40,7 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 		});
 		this.$el.html(content);
 		this.renderComments();
+		this.renderNew();
 		return this;
 	},
 	
@@ -29,6 +49,11 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 		_(comments).each( function (comment) {
 			this.addComment(comment);
 		}.bind(this));
+	},
+	
+	renderNew: function () {
+		var newView = new WeDesign.Views.CommentNew();
+		this.$el.find('.new-comment-form').html(newView.render().$el)
 	}
 
 });

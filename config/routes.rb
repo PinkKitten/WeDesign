@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :designs, only: [:show]
     end
     resources :designs, except: [:new, :edit] 
+    resources :comments, only: [:create]
   end
   
 end

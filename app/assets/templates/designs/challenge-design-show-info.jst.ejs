@@ -1,8 +1,34 @@
-<h3><%= design.escape('title') %></h3>
-<p>Designed by DESIGNER NAME</p>
-<p>SHORT DESCRIPTION</p>
+<div class='design-information'>
+	<h3><%= design.escape('title') %></h3>
+	<p>Designed by DESIGNER NAME</p>
+	<p>SHORT DESCRIPTION</p>
 
-<div>XXXX<br>pre-orders</div>
-<div>(X/xmat)<br>rank</div>
-<div>XXXX<br>days to go</div>
-<div>Button to preorder</div>
+	<div>XXXX<br>pre-orders</div>
+	<div>(X/xmat)<br>rank</div>
+	<div>XXXX<br>days to go</div>
+	<button class='button-to-preorder btn btn-default'>Preorder</button>
+</div>
+
+<div class="pre-order-form">
+	<form role="form">
+	  <div class="form-group">
+	    <label for="design_title">Title</label>
+	    <input type="text" class="form-control" name="design[title]" id="design_title" placeholder="Enter title" autofocus>
+	  </div>
+	  <div class="form-group">
+	    <label for="design_description">Description</label>
+	    <textarea class="form-control" name="design[description]" id="design_description"></textarea>
+	  </div>
+	  <div class="form-group">
+	    <label for="design_img">Design</label>
+	    <input type="file" id="design_img" name="design[img]">
+	    <p class="help-block">Example block-level help text here.</p>
+	  </div>
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox"> I agree with the rules and regulations
+	    </label>
+	  </div>
+	  <button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>

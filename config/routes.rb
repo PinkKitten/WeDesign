@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
     resources :designs, except: [:new, :edit] 
     resources :comments, only: [:create]
+    resources :home
   end
   
 end

@@ -12,12 +12,15 @@ div.challenge-img {
 div.challenge-img img {
 	height: 150px;
 	opacity: 0.4;
+  position: relative;
+  z-index: -1;
 }
 
 div.challenge-text {
 	position: absolute;
 	left: 0;
 	bottom: 0;
+	z-index: 10;
 }
 
 div.challenge-container {
@@ -25,23 +28,26 @@ div.challenge-container {
 	height: 175px;
 	float: left;
 	position: relative;
-	border: 2px solid grey;
+//	border: 2px solid grey;
+	background-color: #333333;
+	color: white;
 	border-radius: 2px;
 	margin: 10px;
 }
 
-div.challenge-text {
-	z-index: 10;
+div.challenge-container:hover {
+	background-image: url('shorts.jpg');
+	color: transparent;
+	content: "";
 }
 
-div.challenge-container:hover {
-	background-color: pink;
-}
+//div.challenge-img img:hover {
+//	height: 150px;
+//	opacity: 0;
+//}
 
 div.challenge-description {
 	height: 200px;
-//	width: 200px;
-//	border: 1px solid lightgrey;
 }
 
 div.challenge-img-big {

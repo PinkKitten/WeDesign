@@ -6,9 +6,15 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 	
 	//need to adjust the actual routes specs later
 	routes: {
+		"api/home": 'showHome',
 		"api/challenges": 'indexChallenges',
 		"api/challenges/:id": 'showChallenge',
 		"api/challenges/:id/designs/:id": 'showChallengeDesign'
+	},
+	
+	showHome: function () {
+		var homeView = new WeDesign.Views.HomeShow();
+		this._swapView(homeView);
 	},
 	
 	indexChallenges: function() {

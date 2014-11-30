@@ -5,12 +5,16 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	
 	initialize: function () {
 		this.listenTo(this.model, "sync", this.render);
+		// debugger
+		// this.$designs = this.$el.find('div.challenges-design-index-item');
+	  // this.$el.find('div.challenges-design-index-item').remove();
+		this.currentIdx = 0;
 	},
 	
 	events: {
 		'click div.submit-design': 'renderSubmit',
 		'submit': 'addNewDesign',
-		'blur .submission-form': 'closeNewSubmission'
+		'blur .submission-form': 'closeNewSubmission',
 	},
 	
 	addNewDesign: function (event) {
@@ -33,7 +37,8 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		this.remove();
 		this.renderDesigns();
 		this.attachSubviews();
-		this.fillDesigns();
+		// debugger
+		// this.fillDesigns();
 		return this;
 	},
 	
@@ -57,10 +62,11 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	},
 	
 	fillDesigns: function () {
-		this.$designs = this.$el.find('div.challenges-design-index-item');
-	  this.$el.find('div.challenges-design-index-item').remove();
-	  	for (var i = 0; i < 6; i++) {
-	    	this.$el.find('.submitted-designs .designs').append(this.$designs[i]);
+		// this.$designs = this.$el.find('div.challenges-design-index-item');
+		this.$el.find('div.challenges-design-index-item').remove();
+		this.allDesigns = $(this.model.designs().models);
+	  	for (var i = this.currentIdx; i < this.currentIdx + 6; i++) {
+	    	this.$el.find('.submitted-designs .designs').append(this.allDesigns[i]);
 	  	};
 		}
 		

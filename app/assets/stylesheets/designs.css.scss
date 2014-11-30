@@ -57,3 +57,29 @@ div.submitted-designs-section-title {
 div.design-img-large img {
 	height: 450px;
 }
+
+//div.button-to-preorder {
+//	width: 150px;
+//	height: 50px;
+//	background-color: #E4D3D2;
+//	border-radius: 10px;
+//}
+
+div.design-information {
+	position: relative;
+}
+
+div.pre-order-form {
+	height: 400px;
+	width: 300px;
+	display: none;
+	z-index: 10;
+	background-color: #F5DDDA;
+  position: absolute;
+	left: 50%;
+	top: 50%;
+	margin:-200px 0 0 -150px;
+	padding: 10px;
+	border: 1px solid #E4D3D2;
+	border-radius: 5px;
+}

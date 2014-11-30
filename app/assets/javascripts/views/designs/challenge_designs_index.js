@@ -15,12 +15,16 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	},
 	
 	moveCarousel: function (event) {
-		this.currentIdx += 1;
+		var target = $(event.currentTarget);
+		if(target.hasClass('glyphicon-chevron-left')) {
+			this.currentIdx -= 1;
+		} else {
+			this.currentIdx += 1;
+		}
 		this.fillDesigns();
 	},
 	
 	addDesignItem: function (design) {
-		debugger
 		var designItemShow = new WeDesign.Views.ChallengeDesignsIndexItem({
 			model: design
 		});
@@ -53,9 +57,23 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	fillDesigns: function () {
 		this.$el.find('div.challenges-design-index-item').remove();
 		var allDesigns = $(this.collection.models);
-	  	for (var i = this.currentIdx; i < this.currentIdx + 6; i++) {
-				this.addDesignItem(allDesigns[i]);
-	  	};
+		var len = allDesigns.length - 1;
+		
+		if(this.currentIdx > len) {
+			this.currentIdx = 0;
+		} else if (this.currentIdx < 0) {
+			this.currentIdx = len; 
 		}
+		
+  	for (var i = this.currentIdx; i < this.currentIdx + 6; i++) {
+			var pos = i;
+			if(pos > len) {
+				pos = 0 + (pos - len - 1);
+			} else if (pos < 0) {
+				pos = len + (pos + 1); 
+			}
+			this.addDesignItem(allDesigns[pos]);
+  	};
+	}
 
 });

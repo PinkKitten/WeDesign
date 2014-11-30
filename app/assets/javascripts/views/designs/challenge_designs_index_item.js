@@ -8,8 +8,12 @@ WeDesign.Views.ChallengeDesignsIndexItem = Backbone.View.extend({
 	},
 	
 	render: function () {
+		debugger
+		var designPreOrders = this.model.preOrderUsers().length;
 		var content = this.template({
-			design: this.model
+			design: this.model,
+			designPreOrders: designPreOrders,
+			designer: this.model.designer()
 		});
 		this.$el.html(content);
 		return this;

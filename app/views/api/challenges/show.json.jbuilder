@@ -8,5 +8,9 @@ json.designs @challenge.submitted_designs do |design|
 	json.comments design.comments do |comment|
 		json.(comment, :id, :user_id, :design_id, :body, :created_at)
 	end
+	json.designer do
+		json.id design.designer.id
+		json.name design.designer.name
+	end
 end
 

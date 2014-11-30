@@ -1,5 +1,6 @@
 <div class="design-thumbnail" data-id="<%= design.id %>">
 	<div class="design-img"><img src="assets/<%= design.get('design_img') %>"></div>
 	<%= design.escape('title') %><br>
-	# of votes: xxx
+	<i>By <%= designer.escape('name') %> </i><br>
+	<b><%= designPreOrders %> preorders</b>
 </div>

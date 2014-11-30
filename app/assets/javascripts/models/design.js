@@ -16,6 +16,13 @@ WeDesign.Models.Design = Backbone.Model.extend({
 		return this._comments;
 	},
 	
+	designer: function() {
+		if(!this._designer) {
+			this._designer = new WeDesign.Models.User({});
+		}
+		return this._designer;
+	},
+	
 	parse: function(resp) {
 
 		if (resp.preOrderUsers) {
@@ -25,6 +32,10 @@ WeDesign.Models.Design = Backbone.Model.extend({
 		if (resp.comments) {
 			this.comments().set(resp.comments);
 			delete resp.comments;
+		}
+		if (resp.designer) {
+			this.designer().set(resp.designer);
+			delete resp.designer;
 		}
 		return resp;
 	}

@@ -5,7 +5,6 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	
 	initialize: function () {
 		this.listenTo(this.model, "sync", this.render);
-		// debugger
 		// this.$designs = this.$el.find('div.challenges-design-index-item');
 	  // this.$el.find('div.challenges-design-index-item').remove();
 		this.currentIdx = 0;
@@ -37,14 +36,14 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		this.remove();
 		this.renderDesigns();
 		this.attachSubviews();
-		// debugger
+		this.model.challengeRanks();
 		// this.fillDesigns();
 		return this;
 	},
 	
 	renderDesigns: function () {
 		var designViews = new WeDesign.Views.ChallengeDesignsIndex({
-			collection: this.model.designs()
+			collection: this.model.designs(),
 		});
 		this.addSubview('.submitted-designs', designViews);
 	},

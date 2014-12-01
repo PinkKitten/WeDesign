@@ -83,3 +83,27 @@ div.pre-order-form {
 	border: 1px solid #E4D3D2;
 	border-radius: 5px;
 }
+
+p#pre-order-count {
+	font-size: 64px;
+	color: #ff69b4;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0;
+}
+
+p#percent-votes {
+	font-size: 48px;
+	color: #ff87c3;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0;
+}
+
+p#days-left {
+	font-size: 48px;
+	color: #ff87c3;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0;
+}

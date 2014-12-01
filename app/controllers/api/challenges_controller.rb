@@ -15,7 +15,7 @@ module Api
     #   @challenge.try(:destroy)
     #   render json: {}
     # end
-
+    
     def index
       @challenges = Challenge.all
       render json: @challenges

@@ -57,15 +57,21 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	fillDesigns: function () {
 		this.$el.find('div.challenges-design-index-item').remove();
 		var allDesigns = $(this.collection.models);
+		
 		var len = allDesigns.length - 1;
+		
+		if (len === 0) {
+			return;
+		}
 		
 		if(this.currentIdx > len) {
 			this.currentIdx = 0;
 		} else if (this.currentIdx < 0) {
 			this.currentIdx = len; 
 		}
+		var range = (len < 6) ? len : 6;
 		
-  	for (var i = this.currentIdx; i < this.currentIdx + 6; i++) {
+  	for (var i = this.currentIdx; i < this.currentIdx + range; i++) {
 			var pos = i;
 			if(pos > len) {
 				pos = 0 + (pos - len - 1);

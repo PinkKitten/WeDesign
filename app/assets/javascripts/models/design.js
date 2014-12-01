@@ -8,7 +8,7 @@ WeDesign.Models.Design = Backbone.Model.extend({
 		}
 		return this._preOrderUsers;
 	},
-	
+		
 	comments: function() {
 		if(!this._comments) {
 			this._comments = new WeDesign.Collections.Comments([], { design: this });

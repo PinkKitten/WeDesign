@@ -12,8 +12,11 @@ WeDesign.Views.ChallengesIndexItem = Backbone.CompositeView.extend({
 	},
 
 	render: function () {
+		var endDate = new Date(this.model.get('end_date'));
+	  var daysLeft = Math.ceil((endDate - Date.now()) / (24*3600*1000));
 		var content = this.template({
-			challenge: this.model
+			challenge: this.model,
+			daysLeft: daysLeft
 		});
 		this.$el.html(content);
 		return this;

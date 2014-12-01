@@ -5,17 +5,30 @@
 div.challenges-design-index-item {
 	display: inline-block;
 	height: 250px;
+	width: 120px;
 	border: 1px solid grey;
 	margin: 5px;
 	padding: 10px;
 	background-color: white;
 }
 
-div.design-img img{
-//	margin: 2px;
+div.design-img {
 	height: 175px;
+	width: 100px;
+}
+
+div.design-img img {
+//	margin: 2px;
+//	height: 175px;
+	max-height: 175px;
+	max-width: 100px;
+	vertical-align: bottom;
 //	background-color: white;
 }
+
+//div.design-thumbnail {
+//	width: 120px;
+//}
 
 .clearfix {
   overflow: auto;
@@ -54,7 +67,7 @@ div.submitted-designs-section-title {
 	text-align: center;
 }
 
-div.design-img-large img {
+div.design-img-large img {	
 	height: 450px;
 }
 

@@ -14,7 +14,6 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 	},
 	
 	render: function () {
-		// var daysLeft = (this.model.get('end_date') - Date.now()) / (24*3600*1000);
 		var content = this.template({
 			design: this.model,
 			designer: this.model.designer(),

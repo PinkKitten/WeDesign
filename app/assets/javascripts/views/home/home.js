@@ -4,17 +4,22 @@ WeDesign.Views.HomeShow = Backbone.View.extend({
   template: JST['home/show'],
 	
 	events: {
-		"scroll": "scrolling"
+		"scroll": "scrolling",
 	},
 	
 	render: function () {
-		var content = this.template();
+		var content = this.template({
+			imageSource: this.image
+		});
 		this.$el.html(content);
 		return this;
 	},
 	
 	scrolling: function (event) {
 		console.log("scrolling");
-	}
+	},
 	
 });
+
+
+

@@ -5,19 +5,19 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	
 	initialize: function () {
 		this.listenTo(this.model, "sync", this.render);
-		// this.$designs = this.$el.find('div.challenges-design-index-item');
-	  // this.$el.find('div.challenges-design-index-item').remove();
 		this.currentIdx = 0;
 	},
 	
 	events: {
 		'click div.submit-design': 'renderSubmit',
 		'submit': 'addNewDesign',
-		'blur .submission-form': 'closeNewSubmission',
+		// 'blur .submission-form': 'closeNewSubmission',
 	},
 	
 	addNewDesign: function (event) {
-		
+		var imageData = $('.image-editor').cropit('export');
+		debugger
+		// this.image = imageData;
 	},
 	
 	closeNewSubmission: function (event) {
@@ -37,7 +37,6 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		this.renderDesigns();
 		this.attachSubviews();
 		this.model.challengeRanks();
-		// this.fillDesigns();
 		return this;
 	},
 	
@@ -60,13 +59,12 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		}
 	},
 	
-	fillDesigns: function () {
-		// this.$designs = this.$el.find('div.challenges-design-index-item');
-		this.$el.find('div.challenges-design-index-item').remove();
-		this.allDesigns = $(this.model.designs().models);
-	  	for (var i = this.currentIdx; i < this.currentIdx + 6; i++) {
-	    	this.$el.find('.submitted-designs .designs').append(this.allDesigns[i]);
-	  	};
-		}
-		
-})
+});
+
+$(function() {
+  $('.image-editor').cropit({
+    imageState: {
+      src: 'http://lorempixel.com/500/400/'
+    }
+  });
+});

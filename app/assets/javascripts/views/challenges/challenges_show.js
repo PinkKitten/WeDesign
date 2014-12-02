@@ -77,6 +77,8 @@ $(function() {
   $('.image-editor').cropit({
     imageState: {
       src: 'http://lorempixel.com/500/400/'
-    }
+    },
+		 fitHeight: true,
+		exportZoom: 2,
   });
 });

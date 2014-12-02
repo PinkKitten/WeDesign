@@ -2,7 +2,6 @@ module Api
   class DesignsController < ApiController
     def create
       @design = current_user.designs.new(design_params)
-
       if @design.save
         render json: @design
       else
@@ -28,7 +27,7 @@ module Api
     private
 
     def design_params
-      params.require(:design).permit(:design_img, :title, :description)
+      params.require(:design).permit(:design_img, :title, :description, :challenge_id)
     end
   end
 end

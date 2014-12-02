@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :challenges, except: [:new, :edit] do 
       resources :designs, only: [:show]
     end
-    resources :designs# , except: [:new, :edit, :update]
+    resources :designs # , except: [:new, :edit, :update]
     resources :comments, only: [:create]
     resources :home
   end

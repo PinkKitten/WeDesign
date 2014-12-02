@@ -8,9 +8,7 @@ WeDesign.Views.HomeShow = Backbone.View.extend({
 	},
 	
 	render: function () {
-		var content = this.template({
-			imageSource: this.image
-		});
+		var content = this.template();
 		this.$el.html(content);
 		return this;
 	},
@@ -22,4 +20,7 @@ WeDesign.Views.HomeShow = Backbone.View.extend({
 });
 
 
+// $(window).scroll(function() {
+//     console.log("scrolling")
+// });
 

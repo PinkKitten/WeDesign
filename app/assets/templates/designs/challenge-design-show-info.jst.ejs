@@ -1,4 +1,4 @@
-<div class='design-information'>
+<div class='design-stats'>
 	<h3><%= design.escape('title') %></h3>
 	<p>Designed by <%= designer.escape('name') %></p>
 	<p><%= design.escape('description') %></p>
@@ -12,24 +12,11 @@
 
 <div class="pre-order-form">
 	<form role="form">
-	  <div class="form-group">
-	    <label for="design_title">Title</label>
-	    <input type="text" class="form-control" name="design[title]" id="design_title" placeholder="Enter title" autofocus>
-	  </div>
-	  <div class="form-group">
-	    <label for="design_description">Description</label>
-	    <textarea class="form-control" name="design[description]" id="design_description"></textarea>
-	  </div>
-	  <div class="form-group">
-	    <label for="design_img">Design</label>
-	    <input type="file" id="design_img" name="design[img]">
-	    <p class="help-block">Example block-level help text here.</p>
-	  </div>
 	  <div class="checkbox">
 	    <label>
 	      <input type="checkbox"> I agree with the rules and regulations
 	    </label>
 	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+	  <button type="submit" class="btn btn-default">Preorder</button>
 	</form>
 </div>

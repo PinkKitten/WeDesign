@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :designs # , except: [:new, :edit, :update]
     resources :comments, only: [:create]
     resources :home
+    resources :votes, only: [:create]
   end
   
 end

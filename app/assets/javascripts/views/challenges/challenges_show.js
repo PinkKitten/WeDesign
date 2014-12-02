@@ -11,6 +11,7 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	events: {
 		'click div.submit-design': 'renderSubmit',
 		'submit': 'addNewDesign',
+		'click .close-form': 'closeNewSubmission'
 		// 'blur .submission-form': 'closeNewSubmission',
 	},
 	
@@ -31,6 +32,7 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	},
 	
 	closeNewSubmission: function (event) {
+		event.preventDefault();
 		$('.submission-form').fadeOut(500, function() {
 			 $( '.row' ).fadeTo( 500 , 1 , function () {
 			 		$('div.submit-design').removeClass('disabled');

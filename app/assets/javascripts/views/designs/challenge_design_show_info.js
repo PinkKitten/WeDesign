@@ -10,7 +10,20 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		'click button.button-to-preorder': 'renderPreOrderForm'
+		'click button.button-to-preorder': 'renderPreOrderForm',
+		'submit': 'addPreOrder'
+	},
+	
+	addPreOrder: function (event) {
+		event.preventDefault();
+		var order = new WeDesign.Models.Vote();
+		order.set({
+			design_id: this.model.id,
+			challenge_id: this.model.get('challenge_id')
+		});
+		order.save({}, {
+			
+		})
 	},
 	
 	render: function () {
@@ -29,7 +42,8 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 		var target = $('button.button-to-preorder');
 		if (!target.hasClass('disabled')) {
 			target.addClass('disabled')
-			$('.design-information').fadeTo('slow', 0.3, function() {
+			$('ul.nav.nav-pills').fadeTo('slow', 0.3);	
+			$('.design-stats').fadeTo('slow', 0.3, function() {
 				 $( ".pre-order-form" ).fadeIn( 1000 , function () {
 					 // $('#design_title').focus();
 				 })

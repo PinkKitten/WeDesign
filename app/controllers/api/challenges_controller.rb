@@ -18,7 +18,8 @@ module Api
     
     def index
       @challenges = Challenge.all
-      render json: @challenges
+      # render json: @challenges
+      render 'index.json.jbuilder'
     end
 
     def show

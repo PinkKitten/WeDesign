@@ -69,8 +69,8 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 		} else if (this.currentIdx < 0) {
 			this.currentIdx = len; 
 		}
-		var range = (len < 6) ? len : 6;
-		
+		var range = (len < 6) ? len + 1 : 6;
+
   	for (var i = this.currentIdx; i < this.currentIdx + range; i++) {
 			var pos = i;
 			if(pos > len) {

@@ -20,16 +20,14 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		var target = $(event.currentTarget).find('form');
 		var attr = target.serializeJSON();
 		var model = new WeDesign.Models.Design(attr['design']);
-		debugger
 		model.set({
 			design_img: imageData,
 			challenge_id: this.model.id
 		});
 		model.save({}, {
-			success: function () {
-				this.closeNewSubmission;
-			}.bind(this)
-		})
+		
+		});
+		this.closeNewSubmission();
 	},
 	
 	closeNewSubmission: function (event) {

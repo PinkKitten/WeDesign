@@ -25,7 +25,7 @@ WeDesign.Views.ChallengesIndexItem = Backbone.CompositeView.extend({
 	renderShowPage: function (event) {
 		var $target = $(event.currentTarget);
 		var id = $target.attr('data-id');
-		Backbone.history.navigate("api/challenges/" + id, { trigger: true })
+		Backbone.history.navigate("challenges/" + id, { trigger: true })
 	}
 	
 })

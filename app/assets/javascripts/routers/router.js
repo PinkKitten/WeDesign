@@ -6,10 +6,10 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 	
 	//need to adjust the actual routes specs later
 	routes: {
-		"api/home": 'showHome',
-		"api/challenges": 'indexChallenges',
-		"api/challenges/:id": 'showChallenge',
-		"api/challenges/:id/designs/:id": 'showChallengeDesign'
+		"home": 'showHome',
+		"challenges": 'indexChallenges',
+		"challenges/:id": 'showChallenge',
+		"challenges/:id/designs/:id": 'showChallengeDesign'
 	},
 	
 	showHome: function () {

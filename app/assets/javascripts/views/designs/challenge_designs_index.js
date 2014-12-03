@@ -66,7 +66,7 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 		var $target = $(event.currentTarget);
 		var id = $target.attr('data-id');
 		var design = this.collection.get(id);
-		Backbone.history.navigate("api/challenges/" + design.get('challenge_id') + "/designs/" + id, { trigger: true })
+		Backbone.history.navigate("challenges/" + design.get('challenge_id') + "/designs/" + id, { trigger: true })
 	},
 	
 	// fillDesigns: function () {

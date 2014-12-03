@@ -6,6 +6,7 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 
 	routes: {
 		"home": 'showHome',
+		"collection": 'showCollection',
 		"challenges": 'indexChallenges',
 		"challenges/:id": 'showChallenge',
 		"challenges/:id/designs/:id": 'showChallengeDesign'
@@ -14,6 +15,11 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 	showHome: function () {
 		var homeView = new WeDesign.Views.HomeShow();
 		this._swapView(homeView);
+	},
+	
+	showCollection: function () {
+		var collectionView = new WeDesign.Views.CollectionShow();
+			this._swapView(collectionView);
 	},
 	
 	indexChallenges: function() {

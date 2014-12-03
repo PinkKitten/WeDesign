@@ -2,6 +2,10 @@ WeDesign.Collections.Challenges = Backbone.Collection.extend({
 	
   model: WeDesign.Models.Challenge,
 	url: "/api/challenges",
+	
+  comparator: function(challenge) {
+    return challenge.get('created_at');
+  },
 
 	getOrFetch: function(id) {
 		var challenges = this;

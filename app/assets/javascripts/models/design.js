@@ -2,6 +2,13 @@ WeDesign.Models.Design = Backbone.Model.extend({
 	
 	urlRoot: "/api/designs",
 	
+	preOrders: function() {
+		if(!this._preOrders) {
+			this._preOrders = new WeDesign.Collections.Votes([], { design: this });
+		}
+		return this._preOrders;
+	},
+	
 	preOrderUsers: function() {
 		if(!this._preOrderUsers) {
 			this._preOrderUsers = new WeDesign.Collections.Users([], { design: this });
@@ -24,7 +31,10 @@ WeDesign.Models.Design = Backbone.Model.extend({
 	},
 	
 	parse: function(resp) {
-
+		if (resp.preOrders) {
+			this.preOrders().set(resp.preOrders);
+			delete resp.preOrders;
+		}
 		if (resp.preOrderUsers) {
 			this.preOrderUsers().set(resp.preOrderUsers);
 			delete resp.preOrderUsers;

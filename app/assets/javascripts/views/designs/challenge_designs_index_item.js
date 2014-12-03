@@ -3,12 +3,16 @@ WeDesign.Views.ChallengeDesignsIndexItem = Backbone.View.extend({
 	className: "challenges-design-index-item",
   template: JST['designs/challenge-designs-index-item'],
 	
-	initialize: function () {
+	initialize: function (options) {
+		this.challenge = options.challenge;
+		this.listenTo(this.challenge, 'sync', this.render)
 		this.listenTo(this.model, 'sync', this.render)
 	},
 	
 	render: function () {
-		var designPreOrders = this.model.preOrderUsers().length;
+		this.challenge.challengeRanks();
+		debugger
+		var designPreOrders = this.model.preOrders().length;
 		var content = this.template({
 			design: this.model,
 			designPreOrders: designPreOrders,
@@ -16,6 +20,6 @@ WeDesign.Views.ChallengeDesignsIndexItem = Backbone.View.extend({
 		});
 		this.$el.html(content);
 		return this;
-	}
+	},
 
 });

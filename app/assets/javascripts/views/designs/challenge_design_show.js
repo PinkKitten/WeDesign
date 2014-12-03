@@ -7,6 +7,7 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 	initialize: function (options) {
 		this.listenTo(this.model, 'sync', this.render);
 		this.challenge = options.challenge;
+		this.listenTo(this.challenge, 'sync', this.renderInfo)
 	},
 	
 	events: {
@@ -27,9 +28,10 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 	},
 	
 	renderInfo: function (event) {
+		this.challenge.challengeRanks();
 		var endDate = new Date(this.challenge.get('end_date'));
 	  var daysLeft = Math.ceil((endDate - Date.now()) / (24*3600*1000));
-		if (event) {
+		if (event && event.type === 'click') {
 			event.preventDefault();
 			this._changeActiveState($(event.currentTarget));
 		} else {

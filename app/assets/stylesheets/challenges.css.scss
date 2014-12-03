@@ -5,16 +5,19 @@
 div.challenge-img {
 	position: absolute;
 	right: 0;
-	bottom: 10px;
-	height: 150px;
+//	bottom: 10px;
+	width: 275px;
+	height: 275px;
+	z-index: -1;
+	overflow: hidden;
 }
 
-div.challenge-img img {
-	height: 150px;
-	opacity: 0.4;
-  position: relative;
-  z-index: -1;
-}
+//div.challenge-img img {
+//	height: 150px;
+////	opacity: 0.4;
+//  position: relative;
+//  z-index: -1;
+//}
 
 div.challenge-text {
 	position: absolute;
@@ -24,8 +27,8 @@ div.challenge-text {
 }
 
 div.challenge-container {
-	width: 175px;
-	height: 175px;
+	width: 275px;
+	height: 275px;
 	float: left;
 	position: relative;
 //	border: 2px solid grey;
@@ -33,10 +36,12 @@ div.challenge-container {
 	color: white;
 	border-radius: 2px;
 	margin: 10px;
+	overflow: hidden;
 }
 
 div.challenge-container:hover {
-	background-image: url('shorts.jpg');
+//	background-image: url('shorts.jpg');
+background-color: transparent;
 	color: transparent;
 	content: "";
 }

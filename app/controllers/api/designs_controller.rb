@@ -14,6 +14,10 @@ module Api
       render json: @designs
     end
     
+    def show
+      @design = Design.includes(:votes).find(params[:id])
+      render 'show.json.jbuilder'
+    end
     # def update
     #   @design = Item.find(params[:id])
     #

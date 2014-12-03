@@ -31,12 +31,14 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 			model: model
 		});
 		this._swapView(showView);
-		showView.delegateEvents();
+		// showView.delegateEvents();
 	},
 	
 	showChallengeDesign: function(challengeId, designId) {
 		var challenge = this.challengesCollection.getOrFetch(challengeId);
-		var design = challenge.designs().get(designId);
+		// var design = challenge.designs().get(designId);
+		var design = new WeDesign.Models.Design({ id: designId});
+		design.fetch();
 		var challengeDesignShowView = new WeDesign.Views.ChallengeDesignShow({
 			challenge: challenge,
 			model: design

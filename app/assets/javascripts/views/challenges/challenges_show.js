@@ -4,8 +4,10 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	template: JST['challenges/show'],
 	
 	initialize: function () {
+		this.modelDesigns = this.model.designs();
 		this.listenTo(this.model, "sync", this.render);
 		this.currentIdx = 0;
+		this.addDesignsIndex();
 	},
 	
 	events: {
@@ -16,7 +18,7 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	},
 	
 	addNewDesign: function (event) {
-		// event.preventDefault();
+		event.preventDefault();
 		var imageData = $('.image-editor').cropit('export');
 		var target = $(event.currentTarget).find('form');
 		var attr = target.serializeJSON();
@@ -26,7 +28,7 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 			challenge_id: this.model.id
 		});
 		model.save({}, {
-		
+			// this.modelDesigns.add(model)
 		});
 		this.closeNewSubmission();
 	},
@@ -45,16 +47,15 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 			challenge: this.model
 		});
 		this.$el.html(content);
-		this.remove();
-		this.renderDesigns();
 		this.attachSubviews();
-		this.model.challengeRanks();
 		return this;
 	},
 	
-	renderDesigns: function () {
+	addDesignsIndex: function () {
+		// this.model.challengeRanks();
 		var designViews = new WeDesign.Views.ChallengeDesignsIndex({
-			collection: this.model.designs(),
+			challenge: this.model,
+			collection: this.modelDesigns
 		});
 		this.addSubview('.submitted-designs', designViews);
 	},

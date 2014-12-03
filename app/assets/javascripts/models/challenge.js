@@ -10,10 +10,7 @@ WeDesign.Models.Challenge = Backbone.Model.extend({
 	
 	parse: function(resp) {
 		if (resp.designs) {
-			this.designs().set(resp.designs);
-			this._designs.forEach(function(design, idx) {
-				design.parse(resp.designs[idx]);
-			});
+			this.designs().set(resp.designs, {parse: true});
 			delete resp.designs;
 		}
 		return resp;

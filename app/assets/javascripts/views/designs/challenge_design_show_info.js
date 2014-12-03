@@ -22,7 +22,10 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 			challenge_id: this.model.get('challenge_id')
 		});
 		order.save({}, {
-			
+			success: function() {
+				this.model._preOrderUsers.add(order)
+				debugger
+			}.bind(this)
 		})
 	},
 	
@@ -30,7 +33,7 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 		var content = this.template({
 			design: this.model,
 			designer: this.model.designer(),
-			preOrders: this.model.preOrderUsers().length,
+			preOrders: this.model.preOrders().length,
 			percentVotes: this.model._percentVotes,
 			daysLeft: this.daysLeft
 		});

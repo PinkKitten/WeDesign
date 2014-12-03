@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.serializejson.min
 //= require jquery.cropit
+//= require moment
 //= require underscore
 //= require backbone
 //= require bootstrap

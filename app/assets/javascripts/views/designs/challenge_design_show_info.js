@@ -24,7 +24,6 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 		order.save({}, {
 			success: function() {
 				this.model._preOrderUsers.add(order)
-				debugger
 			}.bind(this)
 		})
 	},

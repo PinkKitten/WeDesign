@@ -40,7 +40,7 @@ WeDesign.Models.Design = Backbone.Model.extend({
 			delete resp.preOrderUsers;
 		}
 		if (resp.comments) {
-			this.comments().set(resp.comments);
+			this.comments().set(resp.comments, { parse: true });
 			delete resp.comments;
 		}
 		if (resp.designer) {

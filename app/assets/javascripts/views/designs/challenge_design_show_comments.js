@@ -21,9 +21,10 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 	
 	addNewComment: function (event) {
 		event.preventDefault();
-		var body = this.$el.find('textarea').val();
-		var comment = new WeDesign.Models.Comment({
-			body: body,
+		var target = $(event.currentTarget).find('form');
+		var attr = target.serializeJSON();
+		var comment = new WeDesign.Models.Comment(attr['comment']);
+		comment.set({
 			design_id: this.model.id
 		});
 		comment.save({}, {
@@ -48,6 +49,16 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 	
 	renderComments: function () {
 		var comments = this.model.comments().models;
+		comments.sort(function (a, b) {
+		  if (a.get('created_at') > b.get('created_at')) {
+		    return -1;
+		  }
+		  if (a.get('created_at') < b.get('created_at')) {
+		    return 1;
+		  }
+		  return 0;
+		});
+		
 		_(comments).each( function (comment) {
 			this.addComment(comment);
 		}.bind(this));

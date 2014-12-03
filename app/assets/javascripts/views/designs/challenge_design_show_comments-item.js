@@ -9,8 +9,13 @@ WeDesign.Views.ChallengeDesignShowCommentsItem = Backbone.CompositeView.extend({
 	},
 	
 	render: function () {
+		var a = moment(this.model.get('created_at'));
+		var b = moment(Date.now());
+		var timestamp = a.from(b);
 		var content = this.template({
-			comment: this.model
+			author: this.model.author(),
+			comment: this.model,
+			timestamp: timestamp
 		});
 		this.$el.html(content);
 		return this;

@@ -10,6 +10,10 @@ end
 
 json.comments @design.comments do |comment|
 	json.(comment, :id, :user_id, :design_id, :body, :created_at)
+	json.author do 
+		json.id comment.author.id
+		json.name comment.author.name
+	end
 end
 
 json.designer do

@@ -5,12 +5,10 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
   template: JST['designs/challenge-designs-index'],
 	
 	initialize: function (options) {
-		// this.listenTo(this.collection, 'sync', this.render);
 		this.challenge = options.challenge;
 		this.listenTo(this.collection, 'add', this.addDesignItem);
 		this.currentIdx = 0;
 		this.collection.each(this.addDesignItem.bind(this));
-		// this.fillDesigns();
 	},
 	
 	events: {
@@ -41,27 +39,8 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	render: function () {
 		var content = this.template();
 		this.$el.html(content);
-		// this.renderDesigns();
-		// this.attachSubviews();
-		// this.attachDesigns();
 		return this;
 	},
-	
-	// attachDesigns: function(){
-	// 	var count = 0;
-	// 	while(count < 6 && (count < this.collection.length - 1)){
-	// 		var designView = this.subviews('.designs')[count];
-	// 		this.attachSubview(designView);
-	// 		count++;
-	// 	}
-	// },
-	
-	// renderDesigns: function () {
-	// 	var designs = this.collection.models;
-	// 	_(designs).each( function (design) {
-	// 		this.addDesignItem(design);
-	// 	}.bind(this));
-	// },
 	
 	showDesign: function(event) {
 		var $target = $(event.currentTarget);
@@ -72,8 +51,6 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	
 	fillDesigns: function () {
 		var count = 2;
-		//need to fix this
-		// var allDesigns = this.$el.find('div.challenges-design-index-item');
 		var allDesigns = [];
 		var subViews = this.subviews('.designs');
 		_(subViews).each(function(subView) {
@@ -82,10 +59,9 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 		
 		var len = allDesigns.length;
 
-		if (len === 0) {
+		if (len === 0 || len - this.currentIdx < count ) {
 			return;
 		}
-
 		if(this.currentIdx > len - 1) {
 			this.currentIdx -= 1;
 			return;
@@ -93,10 +69,7 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 			this.currentIdx += 1;
 			return;
 		}
-		
-		if(len - this.currentIdx < count) {
-			return;
-		}
+
 	  $(allDesigns).addClass('in-active');
 		
 		var range = (len < count) ? len : count;

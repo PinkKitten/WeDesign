@@ -5,13 +5,15 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
   template: JST['designs/challenge-design-show-info'],
 	
 	initialize: function (options) {
-		this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model, 'sync add', this.render);
+		this.listenTo(this.model.preOrders(), 'add', this.render);
 		this.daysLeft = options.daysLeft;
 	},
 	
 	events: {
 		'click button.button-to-preorder': 'renderPreOrderForm',
-		'submit': 'addPreOrder'
+		'submit': 'addPreOrder',
+		'blur .pre-order-form': 'closePreOrderForm',
 	},
 	
 	addPreOrder: function (event) {
@@ -23,10 +25,23 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 		});
 		order.save({}, {
 			success: function() {
-				this.model._preOrderUsers.add(order)
+				this.model.preOrders().add(order);
+				this.closePreOrderForm();
 			}.bind(this)
 		})
 	},
+	
+	closePreOrderForm: function (event) {
+		event && event.preventDefault();
+		$('.pre-order-form').fadeOut(500, function() {
+			$( '.design-stats' ).fadeTo( 200 , 1 , function () {
+ 			 $( 'ul.nav.nav-pills' ).fadeTo( 200 , 1 , function () {
+ 			 		$('.button-to-preorder').removeClass('disabled');
+ 			 })
+			})
+		})
+	},
+	
 	
 	render: function () {
 		var content = this.template({
@@ -46,7 +61,7 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 			target.addClass('disabled')
 			$('ul.nav.nav-pills').fadeTo('slow', 0.3);	
 			$('.design-stats').fadeTo('slow', 0.3, function() {
-				 $( ".pre-order-form" ).fadeIn( 1000 , function () {
+				 $( ".pre-order-form" ).fadeIn( 500 , function () {
 					 // $('#design_title').focus();
 				 })
 			})

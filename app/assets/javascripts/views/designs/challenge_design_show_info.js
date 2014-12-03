@@ -63,7 +63,7 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 			$('ul.nav.nav-pills').fadeTo('slow', 0.3);	
 			$('.design-stats').fadeTo('slow', 0.3, function() {
 				 $( ".pre-order-form" ).fadeIn( 500 , function () {
-					 // $('#design_title').focus();
+					 $('.terms-and-conditions').focus();
 				 })
 			})
 		}

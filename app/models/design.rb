@@ -1,5 +1,5 @@
 class Design < ActiveRecord::Base
-  validates :design_img, :title, :designer, presence: true
+  validates :filepicker_url, :title, :designer, presence: true
   
   belongs_to(
     :designer,

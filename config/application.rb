@@ -21,5 +21,7 @@ module WeDesign
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
     
+    config.filepicker_rails.api_key = ENV['FILEPICKER_API_KEY']
+    
   end
 end

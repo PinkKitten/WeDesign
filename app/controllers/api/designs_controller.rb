@@ -31,7 +31,7 @@ module Api
     private
 
     def design_params
-      params.require(:design).permit(:design_img, :title, :description, :challenge_id)
+      params.require(:design).permit(:filepicker_url, :title, :description, :challenge_id)
     end
   end
 end

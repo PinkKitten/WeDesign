@@ -19,26 +19,17 @@
 	</div>
 </div>
 
-<div class="submission-form image-editor">
+<!-- <div class="submission-form"> -->
 	<form role="form">
-	<div class="image-upload">
-	  <div class="form-group">
-	    <!-- <label for="design_img">Design</label> -->
-			<!-- <div class="image-editor"> -->
-			  <!-- <input type="file" class="cropit-image-input"> -->
-			  <div class="cropit-image-preview"></div>
-			  <div class="image-size-label">
-			    Resize image
-			  </div>
-			  <input type="range" class="cropit-image-zoom-input">
-			<!-- </div> -->
-		</div>
-	</div>
-	<div class="design-details">	
 		<div class="form-group">
-		<label for="design_img">Design</label>
-		<input type="file" class="cropit-image-input">
-	</div>
+			<label for="design_img">Design</label><br>
+			<input
+			  type="filepicker"
+			  data-fp-mimetype="image/*"
+			  name="design[filepicker_url]"
+			  data-fp-button-text="Choose Image" 
+			  data-fp-button-class="btn btn-default">
+		</div>
 	  <div class="form-group">
 	    <label for="design_title">Title</label>
 	    <input type="text" 
@@ -49,12 +40,15 @@
 	  </div>
 	  <div class="form-group">
 	    <label for="design_description">Description</label>
-	    <textarea class="form-control" name="design[description]" id="design_description"></textarea>
+	    <textarea class="form-control" 
+								name="design[description]" 
+								id="design_description"></textarea>
 	  </div>
-	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+	  <button type="submit" class="btn btn-default">Submit</button><br>
 		<a href="#" class="close-form">Close</a>
-	</div>
 	</form>
-</div>
+<!-- </div> -->
+
+
+	
 

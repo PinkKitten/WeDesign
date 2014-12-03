@@ -4,7 +4,7 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	template: JST['challenges/show'],
 	
 	initialize: function () {
-		this.modelDesigns = this.model.designs();
+		// this.listenTo(this.model.designs(), 'add', this.render);
 		this.listenTo(this.model, "sync", this.render);
 		this.currentIdx = 0;
 		this.addDesignsIndex();
@@ -13,24 +13,24 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	events: {
 		'click div.submit-design': 'renderSubmit',
 		'submit': 'addNewDesign',
-		'click .close-form': 'closeNewSubmission'
+		'click .close-form': 'closeNewSubmission',
 		// 'blur .submission-form': 'closeNewSubmission',
+		// 'click div.submit-design': 'upload'
 	},
 	
 	addNewDesign: function (event) {
 		event.preventDefault();
-		var imageData = $('.image-editor').cropit('export');
-		var target = $(event.currentTarget).find('form');
-		var attr = target.serializeJSON();
-		var model = new WeDesign.Models.Design(attr['design']);
-		model.set({
-			design_img: imageData,
+		var target = $(event.currentTarget);
+		var attr = target.find('form').serializeJSON();
+		var design = new WeDesign.Models.Design(attr['design']);
+		design.set({
 			challenge_id: this.model.id
 		});
-		model.save({}, {
-			// this.modelDesigns.add(model)
-		});
-		this.closeNewSubmission();
+		design.save({}, {
+			success: function () {
+				this.model.designs().set(design, {remove: false} );
+			}.bind(this)
+		})
 	},
 	
 	closeNewSubmission: function (event) {
@@ -47,15 +47,17 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 			challenge: this.model
 		});
 		this.$el.html(content);
+		var $filePickerInput = this.$("input[type=filepicker]");
+		filepicker.constructWidget($filePickerInput[0]);
+
 		this.attachSubviews();
 		return this;
 	},
 	
 	addDesignsIndex: function () {
-		// this.model.challengeRanks();
 		var designViews = new WeDesign.Views.ChallengeDesignsIndex({
 			challenge: this.model,
-			collection: this.modelDesigns
+			collection: this.model.designs()
 		});
 		this.addSubview('.submitted-designs', designViews);
 	},
@@ -74,12 +76,4 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	
 });
 
-$(function() {
-  $('.image-editor').cropit({
-    imageState: {
-      src: 'http://lorempixel.com/500/400/'
-    },
-		 fitHeight: true,
-		exportZoom: 2,
-  });
-});
+

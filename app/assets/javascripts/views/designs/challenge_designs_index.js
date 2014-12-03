@@ -50,7 +50,7 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	},
 	
 	fillDesigns: function () {
-		var count = 2;
+		var count = 6;
 		var allDesigns = [];
 		var subViews = this.subviews('.designs');
 		_(subViews).each(function(subView) {

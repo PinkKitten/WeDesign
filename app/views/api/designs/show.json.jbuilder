@@ -1,5 +1,9 @@
 json.(@design, :id, :filepicker_url, :title, :designer_id, :challenge_id, :description, :challenge_rank, :created_at)
 
+json.currentUser do
+	json.name @current_user.name
+end
+	
 json.preOrders @design.votes do |preOrder|
 	json.(preOrder, :id, :challenge_id, :user_id, :design_id, :created_at)
 end

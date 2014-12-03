@@ -30,6 +30,13 @@ WeDesign.Models.Design = Backbone.Model.extend({
 		return this._designer;
 	},
 	
+	currentUser: function() {
+		if(!this._currentUser) {
+			this._currentUser = new WeDesign.Models.User({});
+		}
+		return this._currentUser;
+	},
+	
 	parse: function(resp) {
 		if (resp.preOrders) {
 			this.preOrders().set(resp.preOrders);
@@ -46,6 +53,10 @@ WeDesign.Models.Design = Backbone.Model.extend({
 		if (resp.designer) {
 			this.designer().set(resp.designer);
 			delete resp.designer;
+		}
+		if (resp.currentUser) {
+			this.currentUser().set(resp.currentUser);
+			delete resp.currentUser;
 		}
 		return resp;
 	},

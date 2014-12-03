@@ -14,7 +14,8 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 	
 	addComment: function (comment) {
 		var commentShow = new WeDesign.Views.ChallengeDesignShowCommentsItem({
-			model: comment
+			model: comment,
+			currentUser: this.model.currentUser()
 		});
 		this.addSubview('.list-comments', commentShow);
 	},

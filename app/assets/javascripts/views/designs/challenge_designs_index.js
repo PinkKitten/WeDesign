@@ -10,6 +10,7 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 		this.listenTo(this.collection, 'add', this.addDesignItem);
 		this.currentIdx = 0;
 		this.collection.each(this.addDesignItem.bind(this));
+		// this.fillDesigns();
 	},
 	
 	events: {
@@ -71,7 +72,14 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 	
 	fillDesigns: function () {
 		var count = 2;
-		var allDesigns = this.$el.find('div.challenges-design-index-item');
+		//need to fix this
+		// var allDesigns = this.$el.find('div.challenges-design-index-item');
+		var allDesigns = [];
+		var subViews = this.subviews('.designs');
+		_(subViews).each(function(subView) {
+				allDesigns.push(subView.el)
+		})
+		
 		var len = allDesigns.length;
 
 		if (len === 0) {
@@ -89,8 +97,7 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 		if(len - this.currentIdx < count) {
 			return;
 		}
-		
-	  allDesigns.addClass('in-active');
+	  $(allDesigns).addClass('in-active');
 		
 		var range = (len < count) ? len : count;
 

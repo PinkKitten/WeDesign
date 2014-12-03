@@ -79,7 +79,7 @@ div.challenge-img-big {
 }
 
 div.submission-form {
-	height: 400px;
+	height: 300px;
 	width: 400px;
 	display: none;
 	z-index: 10;
@@ -87,7 +87,7 @@ div.submission-form {
   position: absolute;
 	left: 50%;
 	top: 50%;
-	margin:-200px 0 0 -200px;
+	margin:-150px 0 0 -200px;
 	padding: 10px;
 	border: 1px solid #E4D3D2;
 	border-radius: 5px;
@@ -105,31 +105,8 @@ div.image-upload {
 	width: 250px;
 }
 
-//cropit test below
-//.cropit-image-preview {
-//  background-color: #f8f8f8;
-//  background-size: cover;
-//  border: 1px solid #ccc;
-//  border-radius: 3px;
-//  margin-top: 7px;
-//  width: 200px;
-//  height: 350px;
-//  cursor: move;
-//}
-//
-//.cropit-image-background {
-//  opacity: .2;
-//  cursor: auto;
-//}
-//
-//.image-size-label {
-//  margin-top: 10px;
-//}
-//
-//input {
-//  display: block;
-//}
-//
-//.export {
-//  margin-top: 10px;
-//}
+span.glyphicon-remove {
+	opacity: 0.5;
+	font-size: 18px;
+	float: right;
+}

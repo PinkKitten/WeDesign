@@ -16,16 +16,4 @@ WeDesign.Models.Challenge = Backbone.Model.extend({
 		return resp;
 	},
 	
-	challengeRanks: function () {
-		var allPreOrders = 0;
-		var designs = this.designs();
-		designs.forEach(function(design) {
-			allPreOrders += design.preOrderUsers().length;
-		});
-		designs.forEach(function(design) {
-			var rank = design.preOrderUsers().length / allPreOrders;
-			design._percentVotes = rank;
-		})
-	},
-	
 });

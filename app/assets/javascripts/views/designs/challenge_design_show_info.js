@@ -5,6 +5,7 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
   template: JST['designs/challenge-design-show-info'],
 	
 	initialize: function (options) {
+		this.allPreOrders = options.allPreOrders;
 		this.listenTo(this.model, 'sync add', this.render);
 		this.listenTo(this.model.preOrders(), 'add', this.render);
 		this.daysLeft = options.daysLeft;
@@ -48,7 +49,7 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 			design: this.model,
 			designer: this.model.designer(),
 			preOrders: this.model.preOrders().length,
-			percentVotes: this.model._percentVotes,
+			percentVotes: Math.floor(this.model.preOrders().length / this.allPreOrders * 100),
 			daysLeft: this.daysLeft
 		});
 		this.$el.html(content);

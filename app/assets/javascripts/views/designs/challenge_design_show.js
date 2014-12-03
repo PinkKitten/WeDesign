@@ -28,7 +28,7 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 	},
 	
 	renderInfo: function (event) {
-		this.challenge.challengeRanks();
+		// this.challenge.challengeRanks();
 		var endDate = new Date(this.challenge.get('end_date'));
 	  var daysLeft = Math.ceil((endDate - Date.now()) / (24*3600*1000));
 		if (event && event.type === 'click') {
@@ -37,9 +37,17 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 		} else {
 			this._changeActiveState(this.$el.find('.info'));
 		}
+		
+		var allPreOrders = 0;
+		var designs = this.challenge.designs();
+		designs.forEach(function(design) {
+			allPreOrders += design.preOrders().length;
+		});
+		
 		var infoView = new WeDesign.Views.ChallengeDesignShowInfo({
 			model: this.model,
-			daysLeft: daysLeft
+			daysLeft: daysLeft,
+			allPreOrders: allPreOrders
 		});
 		this.$el.find('.design-content').html(infoView.render().$el);
 	},

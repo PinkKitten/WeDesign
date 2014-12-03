@@ -12,6 +12,10 @@ div.challenges-design-index-item {
 	background-color: white;
 }
 
+div.challenges-design-index-item.in-active {
+	display: none;
+}
+
 div.design-img {
 	height: 175px;
 	width: 100px;

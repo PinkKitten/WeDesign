@@ -3,8 +3,7 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 		this.$rootEl = options.$rootEl;
 		this.challengesCollection = options.challengesCollection;
 	},
-	
-	//need to adjust the actual routes specs later
+
 	routes: {
 		"home": 'showHome',
 		"challenges": 'indexChallenges',

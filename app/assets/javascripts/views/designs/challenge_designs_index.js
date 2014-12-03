@@ -34,13 +34,13 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 			model: design
 		});
 		this.addSubview('.designs', designItemShow);
+		this.fillDesigns();
 	},
 	
 	render: function () {
 		var content = this.template();
 		this.$el.html(content);
 		// this.renderDesigns();
-		// this.fillDesigns();
 		// this.attachSubviews();
 		// this.attachDesigns();
 		return this;
@@ -69,32 +69,35 @@ WeDesign.Views.ChallengeDesignsIndex = Backbone.CompositeView.extend({
 		Backbone.history.navigate("challenges/" + design.get('challenge_id') + "/designs/" + id, { trigger: true })
 	},
 	
-	// fillDesigns: function () {
-	// 	this.$el.find('div.challenges-design-index-item').remove();
-	// 	var allDesigns = $(this.collection.models);
-	//
-	// 	var len = allDesigns.length - 1;
-	//
-	// 	if (len === 0) {
-	// 		return;
-	// 	}
-	//
-	// 	if(this.currentIdx > len) {
-	// 		this.currentIdx = 0;
-	// 	} else if (this.currentIdx < 0) {
-	// 		this.currentIdx = len;
-	// 	}
-	// 	var range = (len < 6) ? len + 1 : 6;
-	//
-	//   	for (var i = this.currentIdx; i < this.currentIdx + range; i++) {
-	// 		var pos = i;
-	// 		if(pos > len) {
-	// 			pos = 0 + (pos - len - 1);
-	// 		} else if (pos < 0) {
-	// 			pos = len + (pos + 1);
-	// 		}
-	// 		this.addDesignItem(allDesigns[pos]);
-	//   	};
-	// }
+	fillDesigns: function () {
+		var count = 2;
+		var allDesigns = this.$el.find('div.challenges-design-index-item');
+		var len = allDesigns.length;
+
+		if (len === 0) {
+			return;
+		}
+
+		if(this.currentIdx > len - 1) {
+			this.currentIdx -= 1;
+			return;
+		} else if (this.currentIdx < 0) {
+			this.currentIdx += 1;
+			return;
+		}
+		
+		if(len - this.currentIdx < count) {
+			return;
+		}
+		
+	  allDesigns.addClass('in-active');
+		
+		var range = (len < count) ? len : count;
+
+	  	for (var i = this.currentIdx; i < this.currentIdx + range; i++) {
+			var pos = i;
+			$(allDesigns[pos]).removeClass('in-active');
+	  };
+	}
 
 });

@@ -1,5 +1,6 @@
 WeDesign.Views.ChallengesIndex = Backbone.CompositeView.extend({
-	
+	tagName: "div",
+	className: "wrapper",	
   template: JST['challenges/index'],
 	
 	initialize: function () {

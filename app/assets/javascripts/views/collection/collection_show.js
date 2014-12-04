@@ -1,6 +1,6 @@
 WeDesign.Views.CollectionShow = Backbone.View.extend({
 	tagName: 'div',
-	className: '',
+	className: 'wrapper',
   template: JST['collection/show'],
 
 	render: function () {

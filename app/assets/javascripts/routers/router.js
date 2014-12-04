@@ -5,6 +5,7 @@ WeDesign.Routers.Router = Backbone.Router.extend({
 	},
 
 	routes: {
+		"": "showHome",
 		"home": 'showHome',
 		"collection": 'showCollection',
 		"challenges": 'indexChallenges',

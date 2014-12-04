@@ -1,6 +1,6 @@
 WeDesign.Views.HomeShow = Backbone.View.extend({
-	tagName: 'div',
-	className: 'wrapper',
+	// tagName: 'div',
+	// className: 'wrapper',
   template: JST['home/show'],
 	
 	events: {

@@ -1,6 +1,6 @@
 WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({ 
 	tagName: "div",
-	className: "",	
+	className: "wrapper",	
 	template: JST['challenges/show'],
 	
 	initialize: function () {

@@ -14,6 +14,7 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 	events: {
 		'click button.button-to-preorder': 'renderPreOrderForm',
 		'submit': 'addPreOrder',
+		'click .close-form': 'closePreOrderForm',
 		// 'blur .pre-order-form': 'closePreOrderForm',
 	},
 	

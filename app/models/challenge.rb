@@ -14,7 +14,7 @@
 #
 
 class Challenge < ActiveRecord::Base
-  validates :name, :category, :end_date, :description, :admin, presence: true
+  validates :name, :category, :end_date, :description, :admin_id, presence: true
   
   belongs_to(
     :admin,

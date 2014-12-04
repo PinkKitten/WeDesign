@@ -24,27 +24,36 @@
 }
 
 .bg__foo {
-  background-image: url(
-   http://www.atelierblog.com/wp-content/uploads/2013/05/215.jpg
-  );
+  background-image: url(Background1.jpg);
+	 box-shadow: inset 0 0 1em #111;
 }
 
 .bg__bar {
-  background-image: url(
-    http://sales-and-marketing-solutions.com/wp-content/uploads/2013/06/website-background-pattern.jpg
-  );
+  background-image: url(Background2.jpg);
+	box-shadow: inset 0 0 1em #111;
 }
 
 .bg__baz {
-  background-image: url(
-    http://25.media.tumblr.com/tumblr_m5q2xmVJLr1r1vvvdo1_1280.jpg
-  );
+  background-image: url(Background6.jpg);
+	box-shadow: inset 0 0 1em #111;
 }
 
 .bg__bazz {
   height: 100vh;
+  background-image: url(Background3.jpg);
+	box-shadow: inset 0 0 1em #111;
+//  background-image: url(
+//    http://sales-and-marketing-solutions.com/wp-content/uploads/2013/06/website-background-pattern.jpg
+//  );
+}
 
-  background-image: url(
-    http://sales-and-marketing-solutions.com/wp-content/uploads/2013/06/website-background-pattern.jpg
-  );
+div.front-text{
+	padding: 75px 20px 75px 20px;
+	font-size: 36px;
+	background-color: #F8F8F8;
+	text-align: center;
+}
+
+nav.navbar-inverse {
+	margin-bottom: 0px;
 }

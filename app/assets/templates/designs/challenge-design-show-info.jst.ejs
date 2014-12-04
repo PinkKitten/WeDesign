@@ -1,14 +1,16 @@
 <div class='design-stats'>
 	<h3><%= design.escape('title') %></h3>
-	<p>Designed by <%= designer.escape('name') %></p>
-	<p><%= design.escape('description') %></p>
+	<p><i>Designed by <%= designer.escape('name') %></i></p>
+	<!-- <p><%= design.escape('description') %></p> -->
 
 	<div><p id="pre-order-count"><%= preOrders %></p> pre-orders</div>
 	<div><p id="percent-votes"><%= percentVotes %>%</p> of all preorders</div>
 	<div><p id="days-left"><%= daysLeft %></p> days to go</div>
-	<button class='button-to-preorder btn btn-default'>Preorder</button><br>
-	return to all designs
+	<button class='button-to-preorder btn btn-default'>Preorder</button>
+	
+	<!-- return to all designs -->
 </div>
+
 
 <div class="pre-order-form">
 	<form role="form">
@@ -16,9 +18,15 @@
 		<p>Leggings skirt street style dove grey cami. Round sunglasses leather oversized sweatshirt center part la marinière ecru razor pleats chignon. Indigo denim shorts sports luxe plaited statement. Navy blue envelope clutch neutral ribbed maxi.</p>
 	  <div class="checkbox">
 	    <label>
-	      <input type="checkbox" class="terms-and-conditions" autofocus><b>I agree with the terms and conditions</b>
-	    </label>
-	  </div>
+	      <input type="checkbox" id="terms-and-conditions"><b>I agree with the terms and conditions</b>
+	    </label><br><br>
+		</div>
+		<div class="form-group">
+			<!-- <label for="design_description">Leave a message</label> -->
+			<textarea class="form-control" 
+								name="pre-order[message]" 
+								id="pre-order-message" placeholder="Leave a message to the designer (optional)"></textarea>
+		</div>
 	  <button type="submit" class="btn btn-default">Preorder</button>
 	</form>
 </div>

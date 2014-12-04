@@ -5,7 +5,9 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
   template: JST['designs/challenge-design-show-comments'],
 	
 	initialize: function () {
-		this.listenTo(this.model, 'sync', this.render)
+		// this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model.comments(), 'add', this.addComment);
+		this.renderComments();
 	},
 	
 	events: {
@@ -17,7 +19,7 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 			model: comment,
 			currentUser: this.model.currentUser()
 		});
-		this.addSubview('.list-comments', commentShow);
+		this.addSubviewComment('.list-comments', commentShow);
 	},
 	
 	addNewComment: function (event) {
@@ -31,7 +33,7 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 		comment.save({}, {
 			success: function () {
 				this.model.comments().set(comment, {remove: false} );
-				this.render();
+				this.renderNew();
 				$('.comments-count').html(this.model.comments().length);
 			}.bind(this)
 		})
@@ -42,7 +44,7 @@ WeDesign.Views.ChallengeDesignShowComments = Backbone.CompositeView.extend({
 			comment: this.model
 		});
 		this.$el.html(content);
-		this.renderComments();
+		this.attachSubviews();
 		this.renderNew();
 		return this;
 	},

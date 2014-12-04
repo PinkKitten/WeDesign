@@ -14,12 +14,19 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 	events: {
 		'click button.button-to-preorder': 'renderPreOrderForm',
 		'submit': 'addPreOrder',
-		'blur .pre-order-form': 'closePreOrderForm',
+		// 'blur .pre-order-form': 'closePreOrderForm',
 	},
 	
 	addPreOrder: function (event) {
 		event.preventDefault();
-		var order = new WeDesign.Models.Vote();
+		var target = $(event.currentTarget).find('form');
+		var attr = target.serializeJSON();
+		var order = new WeDesign.Models.Vote(attr['pre-order']);
+		var terms = document.getElementById('terms-and-conditions').checked;
+		if (!terms) {
+			//render error message
+			return
+		}
 		order.set({
 			design_id: this.model.id,
 			challenge_id: this.model.get('challenge_id')

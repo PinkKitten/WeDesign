@@ -87,7 +87,7 @@ div.design-information {
 }
 
 div.pre-order-form {
-	height: 300px;
+	height: 400px;
 	width: 300px;
 	display: none;
 	z-index: 10;
@@ -102,7 +102,7 @@ div.pre-order-form {
 }
 
 p#pre-order-count {
-	font-size: 64px;
+	font-size: 48px;
 	color: #ff69b4;
 	font-weight: bold;
 	display: inline-block;
@@ -110,7 +110,7 @@ p#pre-order-count {
 }
 
 p#percent-votes {
-	font-size: 48px;
+	font-size: 36px;
 	color: #ff87c3;
 	font-weight: bold;
 	display: inline-block;
@@ -123,4 +123,12 @@ p#days-left {
 	font-weight: bold;
 	display: inline-block;
 	margin: 0;
+}
+
+button.button-to-preorder {
+	margin-top: 20px;
+}
+
+.list-pre-order-users {
+	margin-top: 20px;
 }

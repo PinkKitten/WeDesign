@@ -14,6 +14,7 @@ gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'filepicker-rails'
 gem 'figaro'
+gem 'seed_dump', '~> 3.2.0'
 # gem 'newrelic_rpm'
 
 group :doc do

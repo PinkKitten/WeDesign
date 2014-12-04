@@ -25,7 +25,7 @@ div#content {
 
 img#catwalk {
 	width: 100vw;
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	z-index: -10;
 }
@@ -37,10 +37,11 @@ div#sign-up-form, div#sign-in-form {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 100px;
-	width: 350px;
+	width: 400px;
 	border-radius: 5px;
 	padding: 10px;
 }
+
 
 .nav > li > a.wedesign-nav-bar {
 	padding: 0px;
@@ -54,4 +55,32 @@ div#sign-up-form, div#sign-in-form {
 
 nav.navbar-inverse {
 	border-radius: 0;
+}
+
+@font-face { font-family: Couture; src: url('fonts/couture-bld.otf'); } 
+
+div.welcome-text {
+	font-family: Couture;
+	font-size: 48px;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+div.link-to-sign-up, div.link-to-sign-in {
+	float: right;
+	margin: 10px 20px 10px 0px; 
+}
+
+div.link-to-sign-up > a, div.link-to-sign-in > a {
+	font-size: 14px;
+	color: grey;
+}
+
+div.link-to-sign-up > a:hover, div.link-to-sign-in > a:hover {
+	font-size: 14px;
+	color: white;
+	text-decoration: none;
 }

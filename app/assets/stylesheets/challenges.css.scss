@@ -40,16 +40,12 @@ div.challenge-container {
 }
 
 div.challenge-container:hover {
-//	background-image: url('shorts.jpg');
-background-color: transparent;
+	background-color: transparent;
 	color: transparent;
 	content: "";
+	cursor: pointer; 
+	cursor: hand; 
 }
-
-//div.challenge-img img:hover {
-//	height: 150px;
-//	opacity: 0;
-//}
 
 div.challenge-description {
 	height: 200px;
@@ -96,6 +92,21 @@ div.submission-form {
 
 .challenge-show-page {
 	position: relative;
+}
+
+div.submit-design:hover {
+	cursor: pointer; 
+	cursor: hand;
+}
+
+div.challenges-design-index-item:hover {
+	cursor: pointer; 
+  cursor: hand; 
+}
+
+span.glyphicon-chevron-left:hover, span.glyphicon-chevron-right:hover {
+	cursor: pointer; 
+	cursor: hand; 
 }
 
 div.image-upload, div.design-details {

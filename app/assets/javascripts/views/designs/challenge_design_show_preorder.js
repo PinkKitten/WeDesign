@@ -11,7 +11,8 @@ WeDesign.Views.ChallengeDesignShowPreOrders = Backbone.CompositeView.extend({
 	
 	addPreOrder: function (preOrder) {
 		var preOrderShow = new WeDesign.Views.ChallengeDesignShowPreOrderUser({
-			model: preOrder
+			model: preOrder,
+			currentUser: this.model.currentUser()
 		});
 		this.addSubview('.list-pre-order-users', preOrderShow);
 	},
@@ -27,6 +28,16 @@ WeDesign.Views.ChallengeDesignShowPreOrders = Backbone.CompositeView.extend({
 	
 	renderPreOrders: function () {
 		var preOrders = this.model.preOrders().models;
+		preOrders.sort(function (a, b) {
+		  if (a.get('created_at') > b.get('created_at')) {
+		    return -1;
+		  }
+		  if (a.get('created_at') < b.get('created_at')) {
+		    return 1;
+		  }
+		  return 0;
+		});
+		
 		_(preOrders).each( function (preOrder) {
 			this.addPreOrder(preOrder);
 		}.bind(this));

@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  validates :body, :author, :design, presence: true
+  validates :body, :author, :design_id, presence: true
   
   belongs_to(
     :author,

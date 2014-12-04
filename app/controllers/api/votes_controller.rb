@@ -12,7 +12,7 @@ module Api
     private
 
     def vote_params
-      params.require(:vote).permit(:design_id, :challenge_id)
+      params.require(:vote).permit(:design_id, :challenge_id, :message)
     end
   end
 end

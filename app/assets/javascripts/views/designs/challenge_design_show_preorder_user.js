@@ -10,8 +10,9 @@ WeDesign.Views.ChallengeDesignShowPreOrderUser = Backbone.CompositeView.extend({
 		var timestamp = a.from(b);
 		
 		var content = this.template({
-			user: this.model,
-			timestamp: timestamp
+			preOrder: this.model,
+			timestamp: timestamp,
+			user: this.model.user(),
 		})
 		this.$el.html(content);
 		return this;

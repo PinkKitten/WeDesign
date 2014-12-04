@@ -7,5 +7,20 @@ WeDesign.Models.Vote = Backbone.Model.extend({
 		delete json.created_at;
 		delete json.updated_at;
 		return json;
+	},
+	
+	user: function() {
+		if(!this._user) {
+			this._user = new WeDesign.Models.User({});
+		}
+		return this._user;
+	},
+	
+	parse: function(resp) {
+		if (resp.user) {
+			this.user().set(resp.user);
+			delete resp.user;
+		}
+		return resp;
 	}
 });

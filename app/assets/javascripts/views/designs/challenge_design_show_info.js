@@ -35,6 +35,7 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 			success: function() {
 				this.model.preOrders().add(order);
 				this.closePreOrderForm();
+				$('.order-count').html(this.model.preOrders().length);
 			}.bind(this)
 		})
 	},

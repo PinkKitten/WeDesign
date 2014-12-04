@@ -19,7 +19,7 @@ WeDesign.Views.ChallengeDesignShow = Backbone.CompositeView.extend({
 	render: function () {
 		var content = this.template({
 			design: this.model,
-			preOrderCount: this.model.preOrderUsers().length,
+			preOrderCount: this.model.preOrders().length,
 			commentsCount: this.model.comments().length
 		});
 		this.$el.html(content);

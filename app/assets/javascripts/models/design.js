@@ -39,7 +39,7 @@ WeDesign.Models.Design = Backbone.Model.extend({
 	
 	parse: function(resp) {
 		if (resp.preOrders) {
-			this.preOrders().set(resp.preOrders);
+			this.preOrders().set(resp.preOrders, { parse: true });
 			delete resp.preOrders;
 		}
 		if (resp.preOrderUsers) {

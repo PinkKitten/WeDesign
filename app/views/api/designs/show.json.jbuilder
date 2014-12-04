@@ -5,7 +5,11 @@ json.currentUser do
 end
 	
 json.preOrders @design.votes do |preOrder|
-	json.(preOrder, :id, :challenge_id, :user_id, :design_id, :created_at)
+	json.(preOrder, :id, :challenge_id, :user_id, :design_id, :message, :created_at)
+	json.user do 
+		json.id preOrder.voter.id
+		json.name preOrder.voter.name
+	end
 end
 
 json.preOrderUsers @design.pre_order_users do |user|

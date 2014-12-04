@@ -31,16 +31,19 @@ img#catwalk {
 	z-index: -10;
 }
 
-div#sign-up-form, div#sign-in-form {
-	background-color: lightgrey;
+div#sign-up-form, div#sign-in-form, div#session-form {
+	background-color: #F8F8F8;
+	border: 1px solid lightgrey;
+//	background-image: url(blackdress.jpg);
 //	opacity: 0.9;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 100px;
-	width: 400px;
+	width: 500px;
 	border-radius: 5px;
 	padding: 10px;
+	display: none;
 }
 
 
@@ -60,15 +63,15 @@ nav.navbar-inverse {
 
 @font-face { font-family: Couture; src: url('fonts/couture-bld.otf'); } 
 
-div.welcome-text {
-	font-family: Couture;
-	font-size: 48px;
-  position: fixed;
-  top: 60%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
+//div.welcome-text {
+//	font-family: Couture;
+//	font-size: 48px;
+//  position: fixed;
+//  top: 60%;
+//  left: 50%;
+//  -webkit-transform: translate(-50%, -50%);
+//  transform: translate(-50%, -50%);
+//}
 
 div.link-to-sign-up, div.link-to-sign-in {
 	float: right;
@@ -84,6 +87,26 @@ div.link-to-sign-up > a:hover, div.link-to-sign-in > a:hover {
 	font-size: 14px;
 	color: white;
 	text-decoration: none;
+}
+
+div.session-img > img {
+	height: 200px;
+//	width: 200px;
+	float: right;
+//  background-image: url(BWdrawing.jpg);
+}
+
+div.form-section {
+	width: 300px;
+	float: left;
+}
+
+div.tab-content {
+	padding: 10px;
+	background-color: white;
+	border-left: 1px solid lightgrey;
+	border-right: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
 }
 
 //collection style

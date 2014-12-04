@@ -1,3 +1,34 @@
-<div class="link-to-sign-up"><a href="/users/new">Sign Up</a></div>
-<div class="link-to-sign-in"><a href="/session/new">Sign In</a></div>
-<div class="welcome-text">Welcome</text>
+<div class="link-to-sign-up"><a href="/" class="links" id="sign-up-link">Sign Up</a></div>
+<div class="link-to-sign-in"><a href="/" class="links" id="sign-in-link">Sign In</a></div>
+<div class="welcome-text">Welcome</text></div>
+	
+<div id="session-form">
+	<div role="tabpanel">
+	  <ul class="nav nav-tabs" role="tablist" id="my-tab">
+	    <li role="Sign in"><a href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab">Sign in</a></li>
+	    <li role="Sign up"><a href="#sign-up" aria-controls="sign-up" role="tab" data-toggle="tab">Sign up</a></li>
+		</ul>
+		
+	  <div class="tab-content clearfix">   	  
+			<div role="tabpanel" class="tab-pane" id="sign-in">
+				<div class="form-section">
+					<%= render partial: "sessions/new" %>
+				</div>
+				<div class="session-img"><img src="/assets/BWdrawing2.jpg"></div>
+			</div>
+	     
+			<div role="tabpanel" class="tab-pane" id="sign-up">
+				<div class="form-section">	
+					<%= render partial: "./users/new" %>
+				</div>
+				<div class="session-img"><img src="/assets/BWdrawing2.jpg"></div>
+			</div>   	 
+		</div>
+	</div>	
+</div>
+
+<script>
+	$(function () {
+	  $('body').showForm();
+	})
+</script>

@@ -28,3 +28,35 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+
+$.ShowForm = function (el) {
+  this.$el = $(el);
+	var that = this;
+	this.$el.on('click', 'a.links', function (event) {
+		event.preventDefault();
+		var $target = $(event.currentTarget);
+		that.fadeIn($target);
+	})
+};
+
+$.fn.showForm = function () {
+  return this.each(function () {
+    new $.ShowForm(this);
+  });
+};
+
+$.ShowForm.prototype.fadeIn = function ($target) {
+	var $background = $(document.getElementById('catwalk-background'));
+	var $contentTabs = this.$el.find('#session-form');
+	if ($target.attr('id') === 'sign-in-link') {
+		$('#my-tab a[href="#sign-in"]').tab('show');
+	} else {
+		$('#my-tab a[href="#sign-up"]').tab('show');
+	}
+
+	$background.fadeTo( 'slow', 0.6, function () {
+		$contentTabs.fadeIn( 2000 , function () {
+	 	})
+	})
+};

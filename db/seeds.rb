@@ -198,7 +198,7 @@ Comment.create!([
   {user_id: 39, design_id: 38, body: "Awesome"},
   {user_id: 40, design_id: 39, body: "Amazing!!"},
   {user_id: 41, design_id: 41, body: "Great"},
-  {user_id: 41, design_id: 41, body: "Can't wait to try it on!"}
+  {user_id: 41, design_id: 41, body: "Can't wait to try it on!"},
   {user_id: 3, design_id: 42, body: "Love it"},
   {user_id: 2, design_id: 43, body: "Can you tell more about the design?"},
   {user_id: 1, design_id: 43, body: "Pretty!"},
@@ -239,7 +239,7 @@ Comment.create!([
   {user_id: 39, design_id: 73, body: "Awesome"},
   {user_id: 40, design_id: 74, body: "Amazing!!"},
   {user_id: 41, design_id: 74, body: "Great"},
-  {user_id: 41, design_id: 77, body: "Can't wait to try it on!"}
+  {user_id: 41, design_id: 77, body: "Can't wait to try it on!"},
 ])
 Vote.create!([
   {design_id: 1, challenge_id: 1, user_id: 1, message: "So exciting!"},

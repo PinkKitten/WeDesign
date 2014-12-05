@@ -15,13 +15,16 @@ WeDesign.Views.ChallengeDesignsIndexItem = Backbone.View.extend({
 		if (designer.get('name') === undefined ) {
 			designer = this.challenge.currentUser();
 		}
+		var popup = '<img src="' + this.model.get('filepicker_url') + '" class="popup-img">'; 
 		var content = this.template({
 			design: this.model,
 			designPreOrders: designPreOrders,
-			designer: designer
+			designer: designer,
+			popup: popup
 		});
 		this.$el.html(content);
 		return this;
 	},
 
 });
+

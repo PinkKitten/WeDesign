@@ -6,14 +6,23 @@ div.challenges-design-index-item {
 	display: inline-block;
 	height: 250px;
 	width: 120px;
-	border: 1px solid grey;
+	border: 1px solid lightgrey;
 	margin: 5px;
 	padding: 10px;
 	background-color: white;
+	box-shadow: 1px 1px 1px #888888
+}
+
+div.challenges-design-index-item:hover {
+	border: 1px solid #ff87c3;
 }
 
 div.challenges-design-index-item.in-active {
 	display: none;
+}
+
+img.popup-img {
+	height: 350px;
 }
 
 div.design-img {
@@ -51,14 +60,13 @@ img.mannequin {
 
 div.submitted-designs {
 	background-color: white;
-//	border-radius: 0px 0px 10px 10px;
 }
 
 div.submitted-designs-row {
 	background-color: #EFEFEF;
 	border-radius: 10px; 
 	text-align: center;
-//	border-radius: 10px;
+	padding: 10px;
 }
 
 div.submitted-designs-section-title {
@@ -72,13 +80,6 @@ div.design-img-large img {
 div.design-img-large {	
 	text-align: center;
 }
-
-//div.button-to-preorder {
-//	width: 150px;
-//	height: 50px;
-//	background-color: #E4D3D2;
-//	border-radius: 10px;
-//}
 
 div.design-information {
 	position: relative;

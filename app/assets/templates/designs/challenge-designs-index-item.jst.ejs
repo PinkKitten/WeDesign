@@ -1,4 +1,4 @@
-<div class="design-thumbnail" data-id="<%= design.id %>">
+<div class="design-thumbnail" data-id="<%= design.id %>" rel="popover">
 	<div class="design-img"><img src="<%= design.get('filepicker_url') %>"></div>
 	<div class="design-information">
 		<%= design.escape('title') %><br>
@@ -6,3 +6,8 @@
 		<b><%= designPreOrders %> preorders</b>
 	</div>
 </div>
+
+<script>
+var img = '<%= popup %>';
+$('.design-thumbnail').popover( {content: img, html:true, trigger: 'hover', placement: 'auto left'})
+</script>

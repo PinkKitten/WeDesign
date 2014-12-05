@@ -13,7 +13,7 @@ User.create!([
   {email: "jason@wung.com", password_digest: "$2a$10$CSSwsU6.mJxw7hBrxtZDz.6cSd01zmEuyly1nLkVqcitslJKcopF2", session_token: "qH1kCCvWX9K34RZmN_K5fw", name: "Jason"},
   {email: "yves@gmail.com", password_digest: "$2a$10$MCWKIxXnQPmOum/nb3VqieaaPldz2JMHr/0POuSpYv3G0vh.En0sy", session_token: "PAatYWTIalTY70icBpV9lw", name: "Yves"},
   {email: "person@gmail.com", password_digest: "$2a$10$MCWKIxXnQPmOum/nb3VqieaaPldz2JMHr/0POuSpYv3G0vh.En0sy", session_token: "PAatYWTIalTY70icBpV9lw", name: "Jenny"},
-  {email: "person@gmail.com", password_digest: "$2a$10$MCWKIxXnQPmOum/nb3VqieaaPldz2JMHr/0POuSpYv3G0vh.En0sy", session_token: "PAatYWTIalTY70icBpV9lw", name: "Leighann"},
+  {email: "person1@gmail.com", password_digest: "$2a$10$MCWKIxXnQPmOum/nb3VqieaaPldz2JMHr/0POuSpYv3G0vh.En0sy", session_token: "PAatYWTIalTY70icBpV9lw", name: "Leighann"},
   {email: "person2@gmail.com", password_digest: "$2a$10$MCWKIxXnQPmOum/nb3VqieaaPldz2JMHr/0POuSpYv3G0vh.En0sy", session_token: "PAatYWTIalTY70icBpV9lw", name: "Michael"},
   {email: "person3@gmail.com", password_digest: "$2a$10$MCWKIxXnQPmOum/nb3VqieaaPldz2JMHr/0POuSpYv3G0vh.En0sy", session_token: "PAatYWTIalTY70icBpV9lw", name: "Antoinet"},
   {email: "person4@gmail.com", password_digest: "$2a$10$MCWKIxXnQPmOum/nb3VqieaaPldz2JMHr/0POuSpYv3G0vh.En0sy", session_token: "PAatYWTIalTY70icBpV9lw", name: "Birdy"},

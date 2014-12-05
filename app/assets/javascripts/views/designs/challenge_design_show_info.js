@@ -9,13 +9,13 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync add', this.render);
 		this.listenTo(this.model.preOrders(), 'add', this.render);
 		this.daysLeft = options.daysLeft;
+		this.totalPreOrders = this.model.preOrders().length;
 	},
 	
 	events: {
 		'click button.button-to-preorder': 'renderPreOrderForm',
 		'submit': 'addPreOrder',
 		'click .close-form': 'closePreOrderForm',
-		// 'blur .pre-order-form': 'closePreOrderForm',
 	},
 	
 	addPreOrder: function (event) {
@@ -37,6 +37,9 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 				this.model.preOrders().add(order);
 				this.closePreOrderForm();
 				$('.order-count').html(this.model.preOrders().length);
+				this.totalPreOrders += 1;
+				var percentVotes = Math.floor(this.model.preOrders().length / (this.totalPreOrders) * 100);
+				$('#percent-votes').html(percentVotes + "%");
 			}.bind(this)
 		})
 	},
@@ -54,11 +57,15 @@ WeDesign.Views.ChallengeDesignShowInfo = Backbone.CompositeView.extend({
 	
 	
 	render: function () {
+		var percentVotes = Math.floor(this.model.preOrders().length / this.totalPreOrders * 100);
+		if (!percentVotes) {
+			percentVotes = 0;
+		}
 		var content = this.template({
 			design: this.model,
 			designer: this.model.designer(),
 			preOrders: this.model.preOrders().length,
-			percentVotes: Math.floor(this.model.preOrders().length / this.allPreOrders * 100),
+			percentVotes: percentVotes,
 			daysLeft: this.daysLeft
 		});
 		this.$el.html(content);

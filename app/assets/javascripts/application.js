@@ -44,6 +44,11 @@ $.ShowForm = function (el) {
 		event.preventDefault();
 		that.guest();
 	})
+	this.$el.on('click', '.close-login-form-no-save', function (event) {
+		event.preventDefault();
+		that.closeForm();
+		that.startSlideShow();
+	})
 	this.startSlideShow();
 };
 
@@ -56,15 +61,28 @@ $.fn.showForm = function () {
 $.ShowForm.prototype.fadeIn = function ($target) {
 	var $background = $(document.getElementById('catwalk-background'));
 	var $contentTabs = this.$el.find('#session-form');
+	var $header = this.$el.find('.links-container');
 	if ($target.attr('id') === 'sign-in-link') {
 		$('#my-tab a[href="#sign-in"]').tab('show');
 	} else {
 		$('#my-tab a[href="#sign-up"]').tab('show');
 	}
-
+	$('.links').css('visibility', 'hidden');
+	$header.fadeTo( 'slow', 0.6)
 	$background.fadeTo( 'slow', 0.6, function () {
-		$contentTabs.fadeIn( 2000 , function () {
-	 	})
+		$contentTabs.fadeIn( 2000 )
+	})
+};
+
+$.ShowForm.prototype.closeForm = function () {
+	var $background = $(document.getElementById('catwalk-background'));
+	var $contentTabs = this.$el.find('#session-form');
+	var $header = this.$el.find('.links-container');
+	$header.fadeTo( 1000 , 1);
+	$contentTabs.fadeOut( 'slow', function () {
+		$background.fadeTo( 'slow', 1 , function () {
+				$('.links').css('visibility', 'visible');
+		});
 	})
 };
 

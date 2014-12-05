@@ -1,5 +1,5 @@
 class Vote < ActiveRecord::Base
-  validates :challenge, :voter, :design, presence: true
+  validates :challenge, :voter, :design_id, presence: true
   
   belongs_to(
     :challenge,

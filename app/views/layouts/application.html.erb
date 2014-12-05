@@ -13,21 +13,33 @@
 
 </head>
 <body>
+	
+<% if logged_in? %>
+		<%= render partial: "layouts/header" %>
+<% else %>
+		<div id="catwalk-background"><img src="/assets/empty-catwalk.png" id="catwalk"></div>
+<% end %>
+
+<%= yield %>
 
 <% if flash[:errors] %>
-	<div class="alert alert-danger" role="alert">
+	<div class="alert alert-danger" role="alert" id="error-messages">
+		<div class="close-error-messages">
+			<a href="#" class="close-errors">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+		</div>
   	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 	  <span class="sr-only">Error:</span>
 	  <%= flash[:errors].join("<br>").html_safe %>
 	</div>
 <% end %>
 
-<% if logged_in? %>
-		<%= render partial: "layouts/header" %>
-<% else %>
-		<div id="catwalk-background"><img src="/assets/empty-catwalk.png" id="catwalk"></div>
-<% end %>
-<%= yield %>
-
+<script>
+	$(function () {
+	  $('#error-messages').errors();
+	})
+</script>
+	
 </body>
 </html>

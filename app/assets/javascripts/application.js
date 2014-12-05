@@ -117,3 +117,19 @@ $.ShowForm.prototype.startSlideShow = function () {
 	  }, itemInterval);
 };
 
+
+$.Errors = function (el) {
+  this.$el = $(el);
+	var that = this;
+	this.$el.on('click', 'a.close-errors', function (event) {
+		event.preventDefault();
+		that.$el.fadeOut( 'fast' ); 
+	})
+};
+
+$.fn.errors = function () {
+  return this.each(function () {
+    new $.Errors(this);
+  });
+};
+

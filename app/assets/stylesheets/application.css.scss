@@ -61,17 +61,18 @@ nav.navbar-inverse {
 	border-radius: 0;
 }
 
-@font-face { font-family: Couture; src: url('fonts/couture-bld.otf'); } 
-
-//div.welcome-text {
-//	font-family: Couture;
-//	font-size: 48px;
-//  position: fixed;
-//  top: 60%;
-//  left: 50%;
-//  -webkit-transform: translate(-50%, -50%);
-//  transform: translate(-50%, -50%);
-//}
+#error-messages {
+	background-color: red;
+	opacity: 0.8;
+	color: white;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 20;
+	border: 1px solid red;
+	width: 100vw;
+}
 
 .catwalk-slide {
 	width: 100vw;

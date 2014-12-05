@@ -19,12 +19,16 @@ div.challenges-design-index-item.in-active {
 div.design-img {
 	height: 175px;
 	width: 100px;
+	position: relative;
 }
 
 div.design-img img {
 	max-height: 175px;
 	max-width: 100px;
 	vertical-align: bottom;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 .clearfix {
@@ -38,9 +42,6 @@ div.designs {
 }
 
 .submit-design {
-//	height: 100px;
-//	width: 100px;
-//	vertical-align: middle;
 	text-align: center;
 }
 

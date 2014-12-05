@@ -69,7 +69,7 @@ $.ShowForm.prototype.fadeIn = function ($target) {
 };
 
 $.ShowForm.prototype.guest = function () {
-	$('#user_email').val('joep@gmail.com');
+	$('#user_email').val('guest@gmail.com');
 	$('#user_password').val('kittens');
 
   setTimeout(function() { 

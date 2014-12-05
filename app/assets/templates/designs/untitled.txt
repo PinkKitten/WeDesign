@@ -1,6 +1,0 @@
-<input
-  type="filepicker"
-  data-fp-mimetype="image/*"
-  name="design[filepicker_url]"
-  data-fp-button-text="Choose Image" 
-  data-fp-button-class="btn btn-default"> 

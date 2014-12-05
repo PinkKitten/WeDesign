@@ -15,6 +15,13 @@
 	</div>
 	<br>
 	<input type="submit" value="Sign in" class="btn default-btn pink-hover">
+	<form action="/session" method="POST">
+		<input type="hidden"
+					 name="authenticity_token"
+					 value="<%= form_authenticity_token %>">
+		<input type="hidden" name="guest_user[email]" value="joep@gmail.com">
+		<input type="hidden" name="guest_user[name]" value="Joep">
 	<input type="submit" value="Sign in as guest" class="btn default-btn pink-hover">
+	</form
 </form>
-					
+

@@ -76,4 +76,3 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	
 });
 
-

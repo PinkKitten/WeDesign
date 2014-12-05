@@ -36,12 +36,15 @@ $.ShowForm = function (el) {
 	this.$el.on('click', 'a.links', function (event) {
 		event.preventDefault();
 		var $target = $(event.currentTarget);
+		clearInterval(that.infiniteLoop);
+		$(".catwalk-slide").css("display","none")
 		that.fadeIn($target);
 	})
 	this.$el.on('click', 'input.guest-login', function (event) {
 		event.preventDefault();
 		that.guest();
 	})
+	this.startSlideShow();
 };
 
 $.fn.showForm = function () {
@@ -72,5 +75,27 @@ $.ShowForm.prototype.guest = function () {
   setTimeout(function() { 
 		$( "#log-in-submit-button" ).trigger( "click" );
   }, 500);
+};
+
+$.ShowForm.prototype.startSlideShow = function () { 
+		var initialFadeIn = 1000;
+	  var itemInterval = 3000;
+	  var fadeTime = 500;
+
+	  var numberOfItems = $('.catwalk-slide').length;
+	  var currentItem = 0;
+	  $('.catwalk-slide').eq(currentItem).fadeIn(initialFadeIn);
+
+	  this.infiniteLoop = setInterval(function(){
+	      $('.catwalk-slide').eq(currentItem).fadeOut(fadeTime);
+
+	      if(currentItem == numberOfItems -1){
+	          currentItem = 0;
+	      }else{
+	          currentItem++;
+	      }
+	      $('.catwalk-slide').eq(currentItem).fadeIn(fadeTime);
+
+	  }, itemInterval);
 };
 

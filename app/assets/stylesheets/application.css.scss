@@ -27,7 +27,7 @@ div#content {
 img#catwalk {
 	width: 100vw;
 	position: fixed;
-	top: 0px;
+	top: 40px;
 	z-index: -10;
 }
 
@@ -73,6 +73,20 @@ nav.navbar-inverse {
 //  transform: translate(-50%, -50%);
 //}
 
+.catwalk-slide {
+	width: 100vw;
+	display: none;
+	position: absolute;
+	top: 40;
+	left: 0;
+	z-index: 1;
+}
+
+div.links-container {
+	height: 40px;
+	background-color: black;
+}
+
 div.link-to-sign-up, div.link-to-sign-in {
 	float: right;
 	margin: 10px 20px 10px 0px; 
@@ -81,6 +95,7 @@ div.link-to-sign-up, div.link-to-sign-in {
 div.link-to-sign-up > a, div.link-to-sign-in > a, p.navbar-text > a {
 	font-size: 14px;
 	color: #9d9d9d;
+	z-index: 10;
 }
 
 div.link-to-sign-up > a:hover, div.link-to-sign-in > a:hover, p.navbar-text > a:hover {

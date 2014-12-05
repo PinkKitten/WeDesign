@@ -27,7 +27,6 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		design.save({}, {
 			success: function () {
 				this.model.designs().set(design, {remove: false} );
-				debugger
 				this.closeNewSubmission();
 			}.bind(this)
 		})

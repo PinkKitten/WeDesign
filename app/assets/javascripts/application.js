@@ -38,6 +38,10 @@ $.ShowForm = function (el) {
 		var $target = $(event.currentTarget);
 		that.fadeIn($target);
 	})
+	this.$el.on('click', 'input.guest-login', function (event) {
+		event.preventDefault();
+		that.guest();
+	})
 };
 
 $.fn.showForm = function () {
@@ -60,3 +64,13 @@ $.ShowForm.prototype.fadeIn = function ($target) {
 	 	})
 	})
 };
+
+$.ShowForm.prototype.guest = function () {
+	$('#user_email').val('joep@gmail.com');
+	$('#user_password').val('kittens');
+
+  setTimeout(function() { 
+		$( "#log-in-submit-button" ).trigger( "click" );
+  }, 500);
+};
+

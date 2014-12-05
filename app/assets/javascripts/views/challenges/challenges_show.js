@@ -4,7 +4,7 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 	template: JST['challenges/show'],
 	
 	initialize: function () {
-		// this.listenTo(this.model.designs(), 'add', this.render);
+		this.listenTo(this.model.designs(), 'add', this.render);
 		this.listenTo(this.model, "sync", this.render);
 		this.currentIdx = 0;
 		this.addDesignsIndex();
@@ -14,8 +14,6 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		'click div.submit-design': 'renderSubmit',
 		'submit': 'addNewDesign',
 		'click .close-form': 'closeNewSubmission',
-		// 'blur .submission-form': 'closeNewSubmission',
-		// 'click div.submit-design': 'upload'
 	},
 	
 	addNewDesign: function (event) {
@@ -29,12 +27,14 @@ WeDesign.Views.ChallengesShow = Backbone.CompositeView.extend({
 		design.save({}, {
 			success: function () {
 				this.model.designs().set(design, {remove: false} );
+				debugger
+				this.closeNewSubmission();
 			}.bind(this)
 		})
 	},
 	
 	closeNewSubmission: function (event) {
-		event.preventDefault();
+		event && event.preventDefault();
 		$('.submission-form').fadeOut(500, function() {
 			 $( '.row' ).fadeTo( 500 , 1 , function () {
 			 		$('div.submit-design').removeClass('disabled');

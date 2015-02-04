@@ -1,7 +1,7 @@
 == README
 
-#A platform for aspiring designers and fashion lovers to meet, interact, and shop. Ruby on Rails back-end, Backbone.js front-end.
-# - Composite (sub)views to add greater functionality and flexibility
-# - Overrides Backbone's default Model#parse method to handle nested data
-# - Built user authentication and RESTful rails API
-# - Integrated Filereader for easy image uploading
+WeDesign is a platform for aspiring designers and fashion lovers to meet, interact, and shop. Ruby on Rails back-end, Backbone.js front-end.
+- Composite (sub)views to add greater functionality and flexibility
+- Overrides Backbone's default Model#parse method to handle nested data
+- Built user authentication and RESTful rails API
+- Integrated Filereader for easy image uploading
